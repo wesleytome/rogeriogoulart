@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecionando...</title>
+    <script>
+      // Em hospedagens estáticas, rotas SPA podem cair no 404.html.
+      // Este script redireciona para index.html para que o React Router funcione.
+      const path = window.location.pathname;
+      const repoName = path.split('/')[1] || '';
+      const basePath = repoName ? `/${repoName}` : '';
+      const redirectPath = `${basePath}/index.html${window.location.search}${window.location.hash}`;
+      
+      // Se já estiver em index.html, não redireciona
+      if (!path.includes('index.html')) {
+        window.location.replace(redirectPath);
+      }
+    </script>
+  </head>
+  <body>
+    <p>Redirecionando...</p>
+  </body>
+</html>

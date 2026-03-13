@@ -1,0 +1,583 @@
+@import url('https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&display=swap');
+
+@import "tailwindcss";
+
+/* Fonte Tangerine Bold */
+@font-face {
+  font-family: 'Tangerine';
+  src: url('./fonts/tangerine/Tangerine_Bold.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* ============================================
+   DESIGN SYSTEM - CSS CUSTOM PROPERTIES
+   Sistema centralizado de cores e tokens
+   ============================================ */
+
+@theme {
+  /* Cores Base em RGB para suporte a alpha */
+  /* Valores padrão - serão sobrescritos pelo ThemeContext */
+  --color-brand: #7FC2B4;
+  --color-brand-foreground: #FFFFFF;
+  
+  --color-background: #FAFAFA;
+  --color-foreground: #212020;
+  
+  --color-muted: #F7F7F7;
+  --color-muted-foreground: #6B7280;
+  
+  --color-card: #FFFFFF;
+  --color-card-foreground: #212020;
+  
+  --color-border: #E5E7EB;
+  --color-input: #E5E7EB;
+  --color-ring: #7FC2B4;
+  
+  /* Cores de Estado */
+  --color-success: #16A34A;
+  --color-warning: #F59E0B;
+  --color-destructive: #DC2626;
+  --color-destructive-foreground: #FFFFFF;
+  --color-info: #0EA5E9;
+  
+  /* Aliases para compatibilidade */
+  --color-primary: var(--color-brand);
+  --color-primary-foreground: var(--color-brand-foreground);
+  --color-secondary: var(--color-brand);
+  --color-secondary-foreground: var(--color-brand-foreground);
+  --color-accent: var(--color-brand);
+  --color-accent-foreground: var(--color-brand-foreground);
+  
+  /* Fontes */
+  --font-heading: 'Manrope', system-ui, sans-serif;
+  --font-body: 'Manrope', system-ui, sans-serif;
+  --font-display: 'Manrope', system-ui, sans-serif;
+  --font-tangerine: 'Tangerine', cursive;
+  
+  /* Border radius */
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  :root {
+    /* Container padding responsivo */
+    --container-padding: 1rem;
+  }
+  
+  @media (min-width: 640px) {
+    :root { --container-padding: 1.5rem; }
+  }
+  @media (min-width: 768px) {
+    :root { --container-padding: 2rem; }
+  }
+  @media (min-width: 1024px) {
+    :root { --container-padding: 3rem; }
+  }
+  @media (min-width: 1280px) {
+    :root { --container-padding: 5rem; }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2 {
+    @apply font-heading;
+  }
+  h3, h4, h5, h6 {
+    @apply font-body;
+    font-weight: 600;
+  }
+}
+
+/* ============================================
+   UTILITIES
+   ============================================ */
+
+@layer utilities {
+  /* Accordion animations */
+  @keyframes accordion-down {
+    from { height: 0; }
+    to { height: var(--radix-accordion-content-height); }
+  }
+
+  @keyframes accordion-up {
+    from { height: var(--radix-accordion-content-height); }
+    to { height: 0; }
+  }
+
+  .animate-accordion-down {
+    animation: accordion-down 0.2s ease-out;
+  }
+
+  .animate-accordion-up {
+    animation: accordion-up 0.2s ease-out;
+  }
+
+  /* ============================================
+     CONTAINER PADRÃO RESPONSIVO
+     ============================================ */
+  
+  .container-section {
+    @apply container mx-auto;
+    padding-left: var(--container-padding);
+    padding-right: var(--container-padding);
+  }
+
+  /* ============================================
+     PADRÃO DE TÍTULOS DE SEÇÃO
+     ============================================ */
+  
+  .section-heading {
+    font-size: clamp(1.75rem, 3vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    font-weight: 600;
+    @apply font-heading mb-3;
+  }
+
+  .section-heading-primary {
+    @apply font-heading font-semibold text-foreground;
+  }
+
+  .section-heading-accent {
+    @apply font-heading font-semibold text-brand;
+  }
+
+  .section-heading-divider {
+    @apply w-16 h-0.5 mb-4 bg-brand;
+  }
+  
+  .section-header {
+    @apply text-left mb-12;
+  }
+  
+  .section-label {
+    @apply text-foreground text-[15px] font-normal;
+  }
+  
+  .section-title {
+    @apply font-bold mb-2 text-foreground;
+    font-size: clamp(2rem, 5vw, 45px);
+    line-height: 1.2;
+  }
+  
+  .section-divider {
+    @apply w-16 h-1 mb-4 bg-brand;
+  }
+  
+  .section-description {
+    @apply max-w-2xl text-foreground text-[17px] leading-relaxed;
+  }
+
+  /* ============================================
+     BOTÕES
+     ============================================ */
+  
+  .btn-primary {
+    @apply bg-brand text-brand-foreground rounded-[7px] transition-[filter];
+  }
+
+  .btn-primary:hover {
+    filter: brightness(110%);
+  }
+
+  .btn-secondary {
+    @apply bg-brand text-brand-foreground rounded-[7px] transition-all;
+  }
+
+  .btn-secondary:hover {
+    filter: brightness(110%);
+  }
+
+  .btn-nav {
+    @apply bg-brand rounded-[7px] transition-opacity hover:opacity-80;
+  }
+
+  /* ============================================
+     BADGES
+     ============================================ */
+  
+  .badge-hof {
+    background-color: color-mix(in srgb, var(--color-brand) 15%, transparent);
+    @apply text-brand border-none;
+  }
+
+  .badge-odontologia {
+    background-color: color-mix(in srgb, var(--color-brand) 10%, transparent);
+    @apply text-brand border-none;
+  }
+
+  .badge-destaque {
+    background-color: color-mix(in srgb, var(--color-brand) 10%, transparent);
+    @apply text-brand border border-brand;
+  }
+
+  .badge-hero {
+    @apply text-foreground;
+  }
+
+  @supports (color: color-mix(in lab, red, red)) {
+    .badge-hero {
+      background-color: color-mix(in srgb, var(--color-foreground) 10%, transparent);
+    }
+  }
+
+  .badge-hero:hover {
+    opacity: 0.9;
+  }
+
+  /* ============================================
+     BACKGROUNDS DE SEÇÃO
+     ============================================ */
+  
+  .bg-section-light {
+    @apply bg-background;
+  }
+  
+  .bg-section-muted {
+    @apply bg-muted;
+  }
+
+  /* Fundos fixos claros - não mudam com o tema */
+  .bg-section-light-fixed {
+    background-color: #FAFAFA;
+  }
+  
+  .bg-section-muted-fixed {
+    background-color: #F7F7F7;
+  }
+
+  .bg-gradient-light-fixed {
+    background: linear-gradient(to bottom, #F7F7F7 0%, #FAFAFA 100%);
+  }
+
+  .bg-gradient-muted-to-light-fixed {
+    background: linear-gradient(to bottom, #F7F7F7 0%, #FAFAFA 100%);
+  }
+
+  .bg-gradient-light-to-muted-fixed {
+    background: linear-gradient(to bottom, #FAFAFA 0%, #F7F7F7 100%);
+  }
+
+  .bg-dark {
+    @apply bg-foreground;
+  }
+
+  /* Gradientes entre seções */
+  .bg-gradient-muted-to-light {
+    background: linear-gradient(to bottom, var(--color-muted) 0%, var(--color-background) 100%);
+  }
+  
+  .bg-gradient-light-to-muted {
+    background: linear-gradient(to bottom, var(--color-background) 0%, var(--color-muted) 100%);
+  }
+  
+  .bg-gradient-muted-to-light-smooth {
+    background: linear-gradient(to bottom, var(--color-muted) 0%, #F8F8F8 50%, var(--color-background) 100%);
+  }
+  
+  .bg-gradient-light-to-muted-smooth {
+    background: linear-gradient(to bottom, var(--color-background) 0%, #F8F8F8 50%, var(--color-muted) 100%);
+  }
+
+  .gradient-section-primary {
+    background: linear-gradient(to bottom, var(--color-background), color-mix(in srgb, var(--color-brand) 20%, transparent));
+  }
+
+  .gradient-section-inverted {
+    background: linear-gradient(to bottom, color-mix(in srgb, var(--color-brand) 20%, transparent), var(--color-background));
+  }
+
+  .gradient-top-section {
+    background: radial-gradient(at 100% 50%, #ffffff, color-mix(in srgb, #d5c5bf 15%, var(--color-background)));
+  }
+
+  /* ============================================
+     CARDS COM HOVER
+     ============================================ */
+  
+  .card-hover {
+    @apply transition-all duration-300;
+  }
+  
+  .card-hover:hover {
+    @apply bg-foreground;
+    transform: translateY(-4px);
+  }
+  
+  .card-hover:hover .card-text {
+    @apply text-background;
+  }
+  
+  .card-text {
+    @apply text-foreground transition-colors duration-300;
+  }
+
+  /* ============================================
+     TEXTO E UTILITÁRIOS
+     ============================================ */
+  
+  .text-light {
+    @apply text-background;
+  }
+
+  .icon-brand {
+    @apply text-brand;
+  }
+  
+  .divider-brand {
+    @apply bg-brand;
+  }
+
+  /* ============================================
+     HERO STYLES
+     ============================================ */
+  
+  .hero-name {
+    font-size: 4.5em;
+    margin-bottom: -15px;
+    text-align: left;
+  }
+
+  .hero-specialization {
+    font-size: 0.9em;
+    @apply text-brand;
+  }
+
+  .hero-main-title {
+    font-size: 3.5em;
+    line-height: 1em;
+  }
+
+  .hero-title {
+    @apply text-foreground;
+  }
+
+  .hero-subtitle {
+    font-size: 1.3em;
+    @apply font-body font-normal;
+  }
+
+  .button-estetica-hero {
+    @apply rounded-[7px] bg-muted text-foreground border border-brand transition-all;
+  }
+
+  .button-estetica-hero:hover {
+    filter: brightness(110%);
+  }
+
+  /* ============================================
+     NAVIGATION
+     ============================================ */
+
+  .text-nav-link {
+    @apply text-foreground;
+  }
+
+  .text-nav-link:hover {
+    @apply text-brand;
+  }
+
+  .bg-top-bar {
+    @apply bg-muted;
+  }
+
+  .bg-nav-bar {
+    @apply bg-background;
+  }
+
+  /* ============================================
+     TABS DE SERVIÇOS
+     ============================================ */
+
+  .services-tabs-list {
+    @apply text-muted-foreground inline-flex h-9 w-full items-center justify-center rounded-lg p-[3px] mb-8;
+    background: none;
+    border-bottom: 1px solid var(--color-brand);
+  }
+
+  .services-tabs-trigger {
+    @apply inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-sm font-medium whitespace-nowrap transition-[color,box-shadow] focus-visible:ring-[3px] focus-visible:outline-1 disabled:pointer-events-none disabled:opacity-50;
+    background: none;
+    border: none;
+  }
+
+  .services-tabs-trigger[data-state="active"] {
+    @apply bg-foreground text-background;
+  }
+
+  .services-tabs-trigger[data-state="active"] .badge {
+    background-color: rgba(255, 255, 255, 0.3) !important;
+    @apply text-background;
+  }
+
+  /* ============================================
+     ACCORDION FAQ
+     ============================================ */
+  
+  [data-slot="accordion-item"] {
+    @apply border-b-border;
+  }
+  
+  [data-slot="accordion-trigger"] {
+    @apply text-foreground;
+  }
+  
+  [data-slot="accordion-trigger"]:hover {
+    @apply text-brand;
+  }
+  
+  [data-slot="accordion-trigger"] svg {
+    @apply text-brand;
+  }
+  
+  [data-slot="accordion-content"] {
+    @apply text-foreground;
+  }
+
+  /* ============================================
+     SCROLLBAR
+     ============================================ */
+  
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Scrollbar estilizada verde */
+  .custom-scrollbar-green {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-brand) transparent;
+  }
+
+  .custom-scrollbar-green::-webkit-scrollbar {
+    width: 6px;
+  }
+
+  .custom-scrollbar-green::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar-green::-webkit-scrollbar-thumb {
+    background: var(--color-brand);
+    border-radius: 3px;
+  }
+
+  .custom-scrollbar-green::-webkit-scrollbar-thumb:hover {
+    background: color-mix(in srgb, var(--color-brand) 80%, white);
+  }
+
+  /* ============================================
+     FONTE TANGERINE
+     ============================================ */
+
+  .font-tangerine {
+    font-family: var(--font-tangerine);
+    color: #c3994a;
+    text-shadow: 0 2px 4px rgba(78, 103, 89, 0.2);
+    font-size: 4.5rem;
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    letter-spacing: 0;
+    text-transform: none;
+    text-decoration: none;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin-bottom: -30px;
+  }
+
+  /* ============================================
+     LOGO SHIELD
+     ============================================ */
+
+  .logo-shield {
+    @apply bg-foreground;
+    width: 57%;
+    height: 116%;
+    margin-left: 49px;
+    margin-top: -40px;
+    clip-path: circle(40%);
+  }
+
+  /* ============================================
+     FOTO DO DOUTOR - IMAGEM RESPONSIVA
+     Uma única imagem com posicionamento CSS
+     ============================================ */
+  
+  .doctor-image {
+    position: absolute;
+    right: 0;
+    z-index: 8;
+    pointer-events: none;
+    object-fit: contain;
+    /* filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15)); */
+    
+    /* Mobile e Tablet (< 1024px): imagem na base do Hero */
+    top: 0;
+    bottom: auto;
+    height: 58vh;
+    max-height: 58vh;
+    width: auto;
+    max-width: 75%;
+    object-position: right bottom;
+  }
+
+  @media (min-width: 768px) {
+    .doctor-image {
+      max-width: 50%;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .doctor-image {
+      /* Desktop: imagem cobre do Hero até a base do Transform */
+      top: 62px;
+      bottom: 0;
+      height: auto;
+      max-height: calc(100% - 62px);
+      max-width: 700px;
+      padding-right: 40px;
+      object-position: right bottom;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .doctor-image {
+      max-width: 740px;
+      padding-right: 60px;
+    }
+  }
+
+  /* Em telas muito grandes, ancora a imagem como se estivesse em um container de 1600px */
+  @media (min-width: 1600px) {
+    .doctor-image {
+      /* Calcula o offset para centralizar o "container virtual" de 1600px */
+      right: calc((100vw - 1600px) / 2);
+      max-width: 800px;
+    }
+  }
+
+  @media (min-width: 1920px) {
+    .doctor-image {
+      right: calc((100vw - 1600px) / 2);
+      max-width: 850px;
+    }
+  }
+}

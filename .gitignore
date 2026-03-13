@@ -1,0 +1,15 @@
+node_modules/
+dist/
+.pnpm-store/
+.DS_Store
+*.log
+.cursor/
+_doc/
+implementation.md
+plan-implementation.md
+plan-implementation_v02.md
+package-lock.json
+.env
+.env.*
+!.env.example
+*.tsbuildinfo

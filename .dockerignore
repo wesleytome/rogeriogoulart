@@ -1,0 +1,12 @@
+node_modules
+dist
+.DS_Store
+.cursor
+.git
+.pnpm-store
+_doc
+implementation.md
+plan-implementation.md
+plan-implementation_v02.md
+package-lock.json
+*.log
