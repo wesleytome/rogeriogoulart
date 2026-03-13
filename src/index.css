@@ -19,21 +19,21 @@
 @theme {
   /* Cores Base em RGB para suporte a alpha */
   /* Valores padrão - serão sobrescritos pelo ThemeContext */
-  --color-brand: #7FC2B4;
+  --color-brand: #1A4262;
   --color-brand-foreground: #FFFFFF;
   
-  --color-background: #FAFAFA;
-  --color-foreground: #212020;
+  --color-background: #F5EFEB;
+  --color-foreground: #1A4262;
   
-  --color-muted: #F7F7F7;
-  --color-muted-foreground: #6B7280;
+  --color-muted: #C8D9E6;
+  --color-muted-foreground: #5F788B;
   
-  --color-card: #FFFFFF;
-  --color-card-foreground: #212020;
+  --color-card: #FFFDF8;
+  --color-card-foreground: #1A4262;
   
-  --color-border: #E5E7EB;
-  --color-input: #E5E7EB;
-  --color-ring: #7FC2B4;
+  --color-border: #D7DDE1;
+  --color-input: #D7DDE1;
+  --color-ring: #1A4262;
   
   /* Cores de Estado */
   --color-success: #16A34A;
@@ -45,10 +45,10 @@
   /* Aliases para compatibilidade */
   --color-primary: var(--color-brand);
   --color-primary-foreground: var(--color-brand-foreground);
-  --color-secondary: var(--color-brand);
-  --color-secondary-foreground: var(--color-brand-foreground);
-  --color-accent: var(--color-brand);
-  --color-accent-foreground: var(--color-brand-foreground);
+  --color-secondary: #567C8D;
+  --color-secondary-foreground: #FFFFFF;
+  --color-accent: #D7C2A1;
+  --color-accent-foreground: #1A4262;
   
   /* Fontes */
   --font-heading: 'Manrope', system-ui, sans-serif;
@@ -184,7 +184,7 @@
      ============================================ */
   
   .btn-primary {
-    @apply bg-brand text-brand-foreground rounded-[7px] transition-[filter];
+    @apply bg-accent text-accent-foreground rounded-[7px] transition-[filter];
   }
 
   .btn-primary:hover {
@@ -243,25 +243,33 @@
     @apply bg-muted;
   }
 
-  /* Fundos fixos claros - não mudam com o tema */
+  /* Fundos claros alinhados ao tema */
   .bg-section-light-fixed {
-    background-color: #FAFAFA;
+    background-color: var(--color-background);
   }
   
   .bg-section-muted-fixed {
-    background-color: #F7F7F7;
+    background-color: var(--color-muted);
   }
 
   .bg-gradient-light-fixed {
-    background: linear-gradient(to bottom, #F7F7F7 0%, #FAFAFA 100%);
+    background: linear-gradient(to bottom, var(--color-muted) 0%, var(--color-background) 100%);
   }
 
   .bg-gradient-muted-to-light-fixed {
-    background: linear-gradient(to bottom, #F7F7F7 0%, #FAFAFA 100%);
+    background: linear-gradient(to bottom, var(--color-muted) 0%, var(--color-background) 100%);
   }
 
   .bg-gradient-light-to-muted-fixed {
-    background: linear-gradient(to bottom, #FAFAFA 0%, #F7F7F7 100%);
+    background: linear-gradient(to bottom, var(--color-background) 0%, var(--color-muted) 100%);
+  }
+
+  .bg-gradient-card-to-white {
+    background: linear-gradient(to bottom, var(--color-card) 0%, #FFFFFF 100%);
+  }
+
+  .bg-gradient-white-to-card {
+    background: linear-gradient(to bottom, #FFFFFF 0%, var(--color-card) 100%);
   }
 
   .bg-dark {
@@ -278,11 +286,21 @@
   }
   
   .bg-gradient-muted-to-light-smooth {
-    background: linear-gradient(to bottom, var(--color-muted) 0%, #F8F8F8 50%, var(--color-background) 100%);
+    background: linear-gradient(
+      to bottom,
+      var(--color-muted) 0%,
+      color-mix(in srgb, var(--color-muted) 45%, var(--color-background)) 50%,
+      var(--color-background) 100%
+    );
   }
   
   .bg-gradient-light-to-muted-smooth {
-    background: linear-gradient(to bottom, var(--color-background) 0%, #F8F8F8 50%, var(--color-muted) 100%);
+    background: linear-gradient(
+      to bottom,
+      var(--color-background) 0%,
+      color-mix(in srgb, var(--color-background) 60%, var(--color-card)) 50%,
+      var(--color-muted) 100%
+    );
   }
 
   .gradient-section-primary {
@@ -294,7 +312,11 @@
   }
 
   .gradient-top-section {
-    background: radial-gradient(at 100% 50%, #ffffff, color-mix(in srgb, #d5c5bf 15%, var(--color-background)));
+    background: radial-gradient(
+      at 100% 50%,
+      var(--color-card),
+      color-mix(in srgb, var(--color-accent) 12%, var(--color-background))
+    );
   }
 
   /* ============================================
@@ -483,8 +505,8 @@
 
   .font-tangerine {
     font-family: var(--font-tangerine);
-    color: #c3994a;
-    text-shadow: 0 2px 4px rgba(78, 103, 89, 0.2);
+    color: var(--color-accent);
+    text-shadow: 0 2px 4px color-mix(in srgb, var(--color-brand) 20%, transparent);
     font-size: 4.5rem;
     font-weight: 700;
     font-style: normal;
@@ -521,22 +543,42 @@
     right: 0;
     z-index: 8;
     pointer-events: none;
+    -o-object-fit: contain;
     object-fit: contain;
     /* filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.15)); */
     
     /* Mobile e Tablet (< 1024px): imagem na base do Hero */
-    top: 0;
+    top: 51px;
     bottom: auto;
-    height: 58vh;
-    max-height: 58vh;
+    height: 52vh;
+    max-height: 52vh;
     width: auto;
-    max-width: 75%;
+    max-width: 71%;
+    -o-object-position: right bottom;
+    object-position: right bottom;
+  }
+
+  .doctor-image-02 {
+    right: -17%;
+    top: 17px;
+    height: 56vh;
+    max-height: 66vh;
+    max-width: 116%;
+    -o-object-position: right bottom;
     object-position: right bottom;
   }
 
   @media (min-width: 768px) {
     .doctor-image {
       max-width: 50%;
+    }
+
+    .doctor-image-02 {
+      right: -10%;
+      top: 8px;
+      height: 58vh;
+      max-height: 58vh;
+      max-width: 58%;
     }
   }
 
@@ -551,12 +593,31 @@
       padding-right: 40px;
       object-position: right bottom;
     }
+
+    .doctor-image-02 {
+      top: 22px;
+      bottom: 0;
+      height: auto;
+      max-height: calc(100% - 8px);
+      right: -72px;
+      max-width: 760px;
+      padding-right: 0;
+    }
   }
 
   @media (min-width: 1280px) {
     .doctor-image {
       max-width: 740px;
       padding-right: 60px;
+    }
+
+    .doctor-image-02 {
+      top: 8px;
+      bottom: 0;
+      max-height: calc(100% - 0px);
+      max-width: 917px;
+      right: -108px;
+      padding-right: 0;
     }
   }
 
@@ -567,12 +628,22 @@
       right: calc((100vw - 1600px) / 2);
       max-width: 800px;
     }
+
+    .doctor-image-02 {
+      right: calc((100vw - 1600px) / 2 - 108px);
+      max-width: 917px;
+    }
   }
 
   @media (min-width: 1920px) {
     .doctor-image {
       right: calc((100vw - 1600px) / 2);
       max-width: 850px;
+    }
+
+    .doctor-image-02 {
+      right: calc((100vw - 1600px) / 2 - 108px);
+      max-width: 960px;
     }
   }
 }

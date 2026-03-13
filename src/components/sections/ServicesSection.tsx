@@ -39,7 +39,7 @@ function ServiceCard({ service }: ServiceCardProps) {
         {/* Botão com ícone */}
         <Button
           asChild
-          className="w-full btn-primary border-0 group/btn"
+          className="w-full bg-foreground text-background hover:opacity-90 border-0 group/btn"
         >
           <Link to={`/odontologia/${service.id}`}>
             Saiba Mais

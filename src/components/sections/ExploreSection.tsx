@@ -39,7 +39,7 @@ function ServiceCard({ service }: ServiceCardProps) {
         {/* Botão com ícone */}
         <Button
           asChild
-          className="w-full btn-primary border-0 group/btn"
+          className="w-full bg-foreground text-background hover:opacity-90 border-0 group/btn"
         >
           <Link to={`${basePath}/${service.id}`}>
             Saiba Mais
@@ -57,7 +57,7 @@ export function ExploreSection() {
     .slice(0, 6)
 
   return (
-    <section className="py-16 md:py-24 bg-card">
+    <section className="py-16 md:py-24 bg-gradient-white-to-card">
       <div className="container-section">
         {/* Header */}
         <div className="section-header">
@@ -81,7 +81,7 @@ export function ExploreSection() {
           </div>
 
           <div className="flex justify-center mt-8 md:mt-10">
-            <CTAButton to="/odontologia" size="sm" className="w-full sm:w-auto sm:min-w-[350px]">
+            <CTAButton to="/odontologia" size="sm" className="w-full sm:w-auto sm:min-w-[290px]">
               <CTAButtonLine>Ver todos os</CTAButtonLine>
               <CTAButtonLine>serviços</CTAButtonLine>
             </CTAButton>

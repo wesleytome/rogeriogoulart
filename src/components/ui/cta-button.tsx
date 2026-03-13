@@ -30,8 +30,8 @@ export function CTAButton({ to, children, className, size = 'default', variant =
   }
 
   const variantClasses = {
-    default: 'bg-foreground text-background',
-    dark: 'bg-background text-foreground',
+    default: 'bg-accent text-accent-foreground',
+    dark: 'bg-brand text-brand-foreground',
   }
 
   return (
@@ -65,4 +65,3 @@ export function CTAButtonLine({ children, className }: CTAButtonLineProps) {
     </span>
   )
 }
-

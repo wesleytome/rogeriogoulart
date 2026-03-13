@@ -43,7 +43,7 @@ export function ServiceCard({ service }: ServiceCardProps) {
         )}
       </CardContent>
       <CardFooter>
-        <Button asChild variant="outline" className="w-full group/btn">
+        <Button asChild className="w-full bg-foreground text-background hover:opacity-90 group/btn">
           <Link to={`/servicos/${service.id}`}>
             Saiba Mais
             <ArrowRight className="ml-2 h-4 w-4 group-hover/btn:translate-x-1 transition-transform" />

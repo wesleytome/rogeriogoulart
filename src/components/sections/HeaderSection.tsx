@@ -3,6 +3,10 @@ import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
 
 export function HeaderSection() {
   const { currentImage } = useImage()
+  const imageClassName =
+    currentImage.name === 'rogerio-groulart-02'
+      ? 'doctor-image doctor-image-02'
+      : 'doctor-image'
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -76,7 +80,7 @@ export function HeaderSection() {
       <img
         src={currentImage.src}
         alt="Dr. Rogério Goulart"
-        className="doctor-image"
+        className={imageClassName}
       />
     </section>
   )

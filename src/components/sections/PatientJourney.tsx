@@ -36,7 +36,7 @@ const journeySteps: JourneyStep[] = [
 
 export function PatientJourney() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-light-to-muted-fixed">
+    <section className="py-16 md:py-24 bg-white">
       <div className="container-section">
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">

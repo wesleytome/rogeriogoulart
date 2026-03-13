@@ -1,9 +1,6 @@
 export function TransformSection() {
   return (
-    <section 
-      className="relative py-12 lg:py-16 xl:py-20"
-      style={{ backgroundColor: '#FFFFFF' }}
-    >
+    <section className="relative py-12 lg:py-16 xl:py-20 bg-card">
       <div className="container mx-auto px-4 md:px-8 xl:px-20">
         <div className="flex flex-col lg:flex-row items-start">
           {/* Área de conteúdo - metade da página */}
@@ -24,4 +21,3 @@ export function TransformSection() {
     </section>
   )
 }
-

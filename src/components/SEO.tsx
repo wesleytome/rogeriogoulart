@@ -318,7 +318,9 @@ export function SEO({
     // ============================================
 
     // Theme color (para mobile browsers)
-    updateOrCreateMeta('name', 'theme-color', '#4E6769')
+    const themeColor =
+      getComputedStyle(document.documentElement).getPropertyValue('--color-brand').trim() || '#1A4262'
+    updateOrCreateMeta('name', 'theme-color', themeColor)
 
     // Mobile web app capable
     updateOrCreateMeta('name', 'mobile-web-app-capable', 'yes')
@@ -374,4 +376,3 @@ export function SEO({
 
   return null
 }
-

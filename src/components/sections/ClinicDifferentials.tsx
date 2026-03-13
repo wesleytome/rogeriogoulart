@@ -42,7 +42,7 @@ const differentials: Differential[] = [
 
 export function ClinicDifferentials() {
   return (
-    <section className="py-16 md:py-24 bg-card">
+    <section className="py-16 md:py-24 bg-gradient-white-to-card">
       <div className="container-section">
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">

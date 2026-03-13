@@ -48,7 +48,7 @@ export function BeforeAfterSection() {
   const currentCase = beforeAfterCases[currentIndex]
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-light-to-muted-fixed">
+    <section className="py-16 md:py-24 bg-gradient-card-to-white">
       <div className="container-section">
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">

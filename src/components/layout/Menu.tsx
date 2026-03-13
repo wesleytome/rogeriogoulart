@@ -100,7 +100,7 @@ export function Menu({ transparent = false }: MenuProps) {
                 href={`https://wa.me/${businessInfo.phones.whatsapp.replace(/\D/g, '')}`}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20BA5A] text-white font-medium transition-colors"
+                className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent hover:brightness-105 text-accent-foreground font-medium transition-[filter]"
               >
                 <Phone className="h-4 w-4" />
                 {businessInfo.phones.main}
@@ -182,7 +182,7 @@ export function Menu({ transparent = false }: MenuProps) {
                     href={`https://wa.me/${businessInfo.phones.whatsapp.replace(/\D/g, '')}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-md bg-[#25D366] hover:bg-[#20BA5A] text-white font-medium transition-colors"
+                    className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent hover:brightness-105 text-accent-foreground font-medium transition-[filter]"
                   >
                     <Phone className="h-5 w-5" />
                     {businessInfo.phones.main}

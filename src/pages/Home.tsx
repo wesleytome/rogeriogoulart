@@ -3,9 +3,7 @@ import { HeaderSection } from '@/components/sections/HeaderSection'
 import { RogerioQuote } from '@/components/sections/RogerioQuote'
 import { StatisticsSection } from '@/components/sections/StatisticsSection'
 import { ExploreSection } from '@/components/sections/ExploreSection'
-import { PatientJourney } from '@/components/sections/PatientJourney'
 import { BeforeAfterSection } from '@/components/sections/BeforeAfterSection'
-import { ClinicDifferentials } from '@/components/sections/ClinicDifferentials'
 import { Testimonials } from '@/components/sections/Testimonials'
 import { LocationMap } from '@/components/sections/LocationMap'
 import { TopSection } from '@/components/layout/TopSection'
@@ -40,8 +38,10 @@ export function Home() {
       <StatisticsSection />
       <ExploreSection />
       <BeforeAfterSection />
-      <ClinicDifferentials />
-      <PatientJourney />
+      {/* Seções ocultas temporariamente a pedido do usuário:
+          <ClinicDifferentials />
+          <PatientJourney />
+      */}
       <Testimonials />
       <LocationMap />
     </>

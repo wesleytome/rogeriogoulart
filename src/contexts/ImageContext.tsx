@@ -1,8 +1,9 @@
 import { createContext, useContext, useState } from 'react'
 import type { ReactNode } from 'react'
 import rogerioImage from '@/images/rogerio-goulart.png'
+import rogerio02Image from '@/images/rogerio-groulart-02.png'
 
-export type ImageName = 'rogerio-goulart'
+export type ImageName = 'rogerio-goulart' | 'rogerio-groulart-02'
 
 export interface ImageOption {
   name: ImageName
@@ -13,8 +14,13 @@ export interface ImageOption {
 const images: Record<ImageName, ImageOption> = {
   'rogerio-goulart': {
     name: 'rogerio-goulart',
-    label: 'Rogério Goulart',
+    label: 'Foto 1',
     src: rogerioImage
+  },
+  'rogerio-groulart-02': {
+    name: 'rogerio-groulart-02',
+    label: 'Foto 2',
+    src: rogerio02Image
   }
 }
 
@@ -28,12 +34,12 @@ const ImageContext = createContext<ImageContextType | undefined>(undefined)
 
 export function ImageProvider({ children }: { children: ReactNode }) {
   const [imageName, setImageName] = useState<ImageName>(() => {
-    // Carrega do localStorage ou usa 'rogerio-goulart' como padrão
+    // Carrega do localStorage ou usa 'rogerio-groulart-02' como padrão
     if (typeof window !== 'undefined') {
       const saved = localStorage.getItem('selectedImage') as ImageName
-      return saved && images[saved] ? saved : 'rogerio-goulart'
+      return saved && images[saved] ? saved : 'rogerio-groulart-02'
     }
-    return 'rogerio-goulart'
+    return 'rogerio-groulart-02'
   })
 
   const currentImage = images[imageName]

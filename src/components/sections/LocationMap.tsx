@@ -31,7 +31,7 @@ export function LocationMap() {
   return (
     <section className="py-12 md:py-16 bg-brand">
       <div className="container-section">
-        <div className="grid grid-cols-1 lg:grid-cols-[7fr_3fr] h-auto lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
+        <div className="grid grid-cols-1 lg:grid-cols-[minmax(0,1.9fr)_minmax(22rem,1fr)] xl:grid-cols-[minmax(0,2.1fr)_minmax(24rem,1fr)] h-auto lg:h-[600px] rounded-lg overflow-hidden shadow-lg">
           {/* Mapa à esquerda - 70% */}
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-full">
             <MapContainer
@@ -55,27 +55,27 @@ export function LocationMap() {
           </div>
 
           {/* Painel de informações à direita - 30% */}
-          <div className="p-6 sm:p-8 lg:p-12 flex flex-col justify-center bg-card">
-            <div className="space-y-6 sm:space-y-8 max-w-md">
+          <div className="flex flex-col justify-center bg-card p-6 sm:p-8 lg:px-10 lg:py-12 xl:px-12">
+            <div className="w-full space-y-6 sm:space-y-8">
               {/* Horário de funcionamento */}
               <div>
                 <h3 className="text-subtitle font-body mb-4 text-brand">Horário de funcionamento</h3>
-                <div className="space-y-2 text-foreground">
-                  <div className="flex items-center text-sm sm:text-base">
-                    <span className="font-medium">SEG - QUA:</span>
-                    <span className="ml-1">8h - 19h</span>
+                <div className="space-y-3 text-foreground">
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <span className="w-[6.5rem] shrink-0 font-medium">SEG - QUA:</span>
+                    <span>8h - 19h</span>
                   </div>
-                  <div className="flex items-center text-sm sm:text-base">
-                    <span className="font-medium">QUI:</span>
-                    <span className="ml-1">8h - 17h</span>
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <span className="w-[6.5rem] shrink-0 font-medium">QUI:</span>
+                    <span>8h - 17h</span>
                   </div>
-                  <div className="flex items-center text-sm sm:text-base">
-                    <span className="font-medium">SEX:</span>
-                    <span className="ml-1">8h - 17h</span>
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <span className="w-[6.5rem] shrink-0 font-medium">SEX:</span>
+                    <span>8h - 17h</span>
                   </div>
-                  <div className="flex items-center text-sm sm:text-base">
-                    <span className="font-medium">SÁB - DOM:</span>
-                    <span className="ml-1">Fechado</span>
+                  <div className="flex items-center gap-2 text-sm sm:text-base">
+                    <span className="w-[6.5rem] shrink-0 font-medium">SÁB - DOM:</span>
+                    <span>Fechado</span>
                   </div>
                 </div>
                 
@@ -113,7 +113,7 @@ export function LocationMap() {
                     <Mail className="h-5 w-5 flex-shrink-0 text-brand" />
                     <a 
                       href={`mailto:${businessInfo.email}`}
-                      className="hover:opacity-80 transition-opacity break-all"
+                      className="hover:opacity-80 transition-opacity break-words lg:break-normal"
                     >
                       {businessInfo.email}
                     </a>
@@ -122,7 +122,7 @@ export function LocationMap() {
                   {/* Endereço */}
                   <div className="flex items-start gap-3 text-sm sm:text-base">
                     <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-brand" />
-                    <span>
+                    <span className="leading-relaxed">
                       {addressLine}
                       <br />
                       {businessInfo.address.city}, {businessInfo.address.state} - {businessInfo.address.zipCode}
