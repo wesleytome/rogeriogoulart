@@ -1,4 +1,4 @@
-import { Building2, Shield, Heart, Award, CreditCard } from 'lucide-react'
+import { Stethoscope, ClipboardList, Shield, Heart, CheckCircle2 } from 'lucide-react'
 
 interface Differential {
   id: string
@@ -10,51 +10,51 @@ interface Differential {
 const differentials: Differential[] = [
   {
     id: '1',
-    title: 'Ambiente Moderno',
-    description: 'Equipamentos de última geração',
-    icon: <Building2 className="h-8 w-8" />
+    title: 'Avaliacao individual',
+    description: 'Cada caso comeca com escuta, exame e criterio clinico',
+    icon: <Stethoscope className="h-8 w-8" />
   },
   {
     id: '2',
-    title: 'Biossegurança',
-    description: 'Protocolos rigorosos de higiene',
-    icon: <Shield className="h-8 w-8" />
+    title: 'Planejamento cuidadoso',
+    description: 'As etapas do tratamento sao definidas conforme a necessidade do paciente',
+    icon: <ClipboardList className="h-8 w-8" />
   },
   {
     id: '3',
-    title: 'Atendimento Humanizado',
-    description: 'Conforto e acolhimento',
-    icon: <Heart className="h-8 w-8" />
+    title: 'Seguranca e biosseguranca',
+    description: 'Protocolos e cuidados adotados em todas as etapas do atendimento',
+    icon: <Shield className="h-8 w-8" />
   },
   {
     id: '4',
-    title: 'Produtos Premium',
-    description: 'Materiais certificados (Anvisa/FDA)',
-    icon: <Award className="h-8 w-8" />
+    title: 'Atendimento humanizado',
+    description: 'Escuta, acolhimento e comunicacao clara do inicio ao fim',
+    icon: <Heart className="h-8 w-8" />
   },
   {
     id: '5',
-    title: 'Financiamento',
-    description: 'Parcelamento facilitado',
-    icon: <CreditCard className="h-8 w-8" />
+    title: 'Acompanhamento responsavel',
+    description: 'Orientacoes e suporte apos cada procedimento',
+    icon: <CheckCircle2 className="h-8 w-8" />
   }
 ]
 
 export function ClinicDifferentials() {
   return (
-    <section className="py-16 md:py-24 bg-gradient-muted-to-light-fixed">
+    <section className="py-16 md:py-24 bg-card">
       <div className="container-section">
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">
           <p className="section-label">
-            O que nos torna únicos
+            Como conduzimos cada tratamento
           </p>
           <h2 className="section-title">
-            Diferenciais da Clínica
+            Diferenciais do atendimento
           </h2>
           <div className="section-divider"></div>
           <p className="section-description">
-            Reforçamos nossa credibilidade e estrutura para oferecer o melhor atendimento
+            Criterio clinico, clareza e cuidado em cada etapa do atendimento
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export function ClinicDifferentials() {
             <div className="absolute inset-0 rounded-lg overflow-hidden">
               <img
                 src="https://amaisd.com.br/wp-content/uploads/2023/04/2_4.png"
-                alt="Consultório médico moderno"
+                alt="Consultorio odontologico"
                 className="w-full h-full object-cover object-[60%_center]"
               />
             </div>

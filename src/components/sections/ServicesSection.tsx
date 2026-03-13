@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import { Badge } from '@/components/ui/badge'
 import { services } from '@/data/services'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
+import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
 import { ArrowRight } from 'lucide-react'
 import { useRef } from 'react'
 import type { Service } from '@/data/services'
@@ -100,14 +101,10 @@ function ServiceCategoryBlock({
             </li>
           ))}
         </ul>
-        <Button 
-          asChild 
-          className="w-full btn-primary border-0"
-        >
-          <Link to="/odontologia">
-            Ver todos os serviços
-          </Link>
-        </Button>
+        <CTAButton to="/odontologia" size="sm" className="w-full">
+          <CTAButtonLine>Ver todos os</CTAButtonLine>
+          <CTAButtonLine>serviços</CTAButtonLine>
+        </CTAButton>
       </div>
 
       {/* Cards horizontais à direita */}
@@ -135,7 +132,7 @@ export function ServicesSection() {
   const odontologiaServices = services.filter(s => s.category === 'odontologia')
 
   return (
-    <section className="py-16 md:py-24 bg-gradient-muted-to-light">
+    <section className="py-16 md:py-24 bg-card">
       <div className="container-section">
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">

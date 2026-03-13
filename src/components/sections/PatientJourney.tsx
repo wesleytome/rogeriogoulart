@@ -10,26 +10,26 @@ interface JourneyStep {
 const journeySteps: JourneyStep[] = [
   {
     number: 1,
-    title: 'Consulta e Avaliação',
-    description: 'Análise clínica e dentária integrada',
+    title: 'Avaliacao clinica',
+    description: 'Escuta, exame e entendimento da sua queixa principal',
     icon: <Stethoscope className="h-6 w-6" />
   },
   {
     number: 2,
-    title: 'Planejamento Personalizado',
-    description: 'Simulação digital dos resultados',
+    title: 'Diagnostico e planejamento',
+    description: 'Definicao do tratamento indicado para o seu caso',
     icon: <ClipboardList className="h-6 w-6" />
   },
   {
     number: 3,
-    title: 'Tratamento',
-    description: 'Procedimentos com tecnologia avançada',
+    title: 'Execucao do tratamento',
+    description: 'Procedimentos realizados com tecnica e previsibilidade',
     icon: <Calendar className="h-6 w-6" />
   },
   {
     number: 4,
     title: 'Acompanhamento',
-    description: 'Suporte contínuo pós-tratamento',
+    description: 'Orientacoes e acompanhamento apos cada etapa',
     icon: <Heart className="h-6 w-6" />
   }
 ]
@@ -41,14 +41,14 @@ export function PatientJourney() {
         {/* Header - Alinhado à esquerda */}
         <div className="section-header">
           <p className="section-label">
-            Acompanhamento do inicio ao fim
+            Do primeiro contato ao acompanhamento
           </p>
           <h2 className="section-title">
-            Jornada do Cliente
+            Como funciona seu atendimento
           </h2>
           <div className="section-divider"></div>
           <p className="section-description">
-            Desmistificamos os processos para reduzir ansiedade e garantir sua tranquilidade em cada etapa
+            Cada etapa e explicada com clareza para que voce saiba o que esperar do diagnostico ao pos-tratamento
           </p>
         </div>
 
@@ -58,19 +58,19 @@ export function PatientJourney() {
           <div className="flex flex-col justify-center">
             <div className="space-y-4 md:space-y-6">
               <h3 className="font-semibold text-brand text-2xl md:text-[30px] leading-tight">
-                Seu Caminho para o Sorriso Perfeito
+                Seu atendimento, passo a passo
               </h3>
               <p className="leading-relaxed text-foreground text-base md:text-lg">
-                Entendemos que cada paciente é único e merece um atendimento personalizado. Nossa jornada foi cuidadosamente planejada para garantir que você se sinta confortável e informado em cada etapa do processo.
+                Cada caso exige avaliacao cuidadosa. Por isso, o atendimento e conduzido de forma organizada, com explicacao clara das possibilidades, etapas e cuidados.
               </p>
               <p className="leading-relaxed text-foreground text-base md:text-lg">
-                Desde a primeira consulta até o acompanhamento pós-tratamento, nossa equipe está comprometida em oferecer excelência, transparência e resultados que superem suas expectativas.
+                Da primeira consulta ao acompanhamento final, o objetivo e que voce tenha seguranca para entender o tratamento e tranquilidade para seguir cada fase.
               </p>
               <div className="pt-4">
                 <div className="flex items-center gap-3">
                   <CheckCircle2 className="h-5 w-5 text-brand" />
                   <span className="font-medium text-brand text-sm md:text-[15px]">
-                    Processo transparente e descomplicado
+                    Processo claro, explicado e individualizado
                   </span>
                 </div>
               </div>

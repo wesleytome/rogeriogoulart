@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import { Badge } from '@/components/ui/badge'
 import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { businessInfo } from '@/data/businessInfo'
 import { services } from '@/data/services'
@@ -160,9 +159,6 @@ export function Footer() {
                 </TableRow>
               </TableBody>
             </Table>
-            <Badge variant="secondary" className="mt-4">
-              Atendimento 24h Emergências
-            </Badge>
           </div>
         </div>
 

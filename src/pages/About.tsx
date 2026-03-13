@@ -9,7 +9,7 @@ export function About() {
     <>
       <SEO
         title={`Sobre | ${businessInfo.name} - Odontologia`}
-        description="Conheça a história e experiência do Dr. Rogério Goulart na odontologia. Mais de 25 anos promovendo saúde bucal, função e estética do sorriso."
+        description="Conheca a trajetoria do Dr. Rogerio Goulart na odontologia, com foco em saude bucal, funcao e estetica do sorriso."
         canonical="/sobre"
         ogImage="/images/og-image-rogerio-goulart.png"
         ogImageWidth={1200}
@@ -48,13 +48,13 @@ export function About() {
 
               {/* Subtítulo */}
               <p className="text-xl md:text-2xl text-brand mb-6">
-                Mais de 25 anos de dedicação à excelência
+                Atencao dedicada a cada sorriso
               </p>
 
               {/* Descrição */}
               <p className="text-lg text-background/90 leading-relaxed max-w-xl">
-                Há mais de 25 anos dedicados à odontologia, com o compromisso de oferecer
-                tratamentos seguros, personalizados e centrados no bem-estar de cada paciente.
+                Atuacao dedicada a odontologia, com o compromisso de oferecer tratamentos
+                seguros, personalizados e centrados no bem-estar de cada paciente.
               </p>
             </div>
           </div>
@@ -101,46 +101,46 @@ export function About() {
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <Clock className="w-8 h-8 text-brand" />
               </div>
-              <p className="text-3xl md:text-4xl font-bold text-foreground">+25</p>
-              <p className="text-muted-foreground mt-1">anos de experiência</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground">Escuta</p>
+              <p className="text-muted-foreground mt-1">Atendimento com tempo para entender seu caso</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <Users className="w-8 h-8 text-brand" />
               </div>
-              <p className="text-3xl md:text-4xl font-bold text-foreground">+5.000</p>
-              <p className="text-muted-foreground mt-1">pacientes atendidos</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground">Proximidade</p>
+              <p className="text-muted-foreground mt-1">Relacao baseada em confianca e clareza</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-brand" />
               </div>
-              <p className="text-3xl md:text-4xl font-bold text-foreground">98%</p>
-              <p className="text-muted-foreground mt-1">de satisfação</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground">Cuidado</p>
+              <p className="text-muted-foreground mt-1">Conforto e atencao ao longo do tratamento</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <GraduationCap className="w-8 h-8 text-brand" />
               </div>
-              <p className="text-3xl md:text-4xl font-bold text-foreground">+20</p>
-              <p className="text-muted-foreground mt-1">especializações</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground">Atualizacao</p>
+              <p className="text-muted-foreground mt-1">Aperfeicoamento tecnico continuo</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Formação e Especializações */}
+      {/* Formacao e areas de atuacao */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container-section">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Formação */}
+            {/* Formacao */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center">
                   <GraduationCap className="w-6 h-6 text-brand" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Formação Acadêmica
+                  Formacao e aperfeicoamento
                 </h2>
               </div>
               
@@ -148,34 +148,30 @@ export function About() {
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
                   <h3 className="font-semibold text-foreground">Graduação em Odontologia</h3>
-                  <p className="text-muted-foreground">Universidade Federal do Rio de Janeiro (UFRJ)</p>
-                  <p className="text-sm text-muted-foreground">2005 - 2010</p>
+                  <p className="text-muted-foreground">Base tecnica para uma atuacao clinica cuidadosa e individualizada.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Especialização em Implantodontia</h3>
-                  <p className="text-muted-foreground">Associação Brasileira de Odontologia (ABO)</p>
-                  <p className="text-sm text-muted-foreground">2011 - 2013</p>
+                  <h3 className="font-semibold text-foreground">Aperfeicoamento em reabilitacao oral</h3>
+                  <p className="text-muted-foreground">Foco em planejamento funcional, mastigacao e recuperacao do sorriso.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Especialização em Prótese Dentária</h3>
-                  <p className="text-muted-foreground">Conselho Federal de Odontologia (CFO)</p>
-                  <p className="text-sm text-muted-foreground">2018 - 2020</p>
+                  <h3 className="font-semibold text-foreground">Atualizacao em implantodontia e protese</h3>
+                  <p className="text-muted-foreground">Condutas pensadas para devolver seguranca, funcao e estabilidade.</p>
                 </div>
                 
                 <div className="relative pl-8">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Mestrado em Odontologia Estética</h3>
-                  <p className="text-muted-foreground">Universidade de São Paulo (USP)</p>
-                  <p className="text-sm text-muted-foreground">2020 - 2022</p>
+                  <h3 className="font-semibold text-foreground">Educacao continuada</h3>
+                  <p className="text-muted-foreground">Atualizacao permanente em tecnicas, materiais e planejamento odontologico.</p>
                 </div>
               </div>
             </div>
 
-            {/* Especializações */}
+            {/* Areas de atuacao */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center">

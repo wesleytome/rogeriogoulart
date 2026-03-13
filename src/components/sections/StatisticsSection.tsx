@@ -1,16 +1,16 @@
 export function StatisticsSection() {
   const statistics = [
     {
-      title: '+25',
-      text: 'Anos de experiência'
+      title: 'Exclusivo',
+      text: 'Atendimento exclusivamente odontologico'
     },
     {
-      title: '+5000',
-      text: 'Pacientes Atendidos'
+      title: 'Individual',
+      text: 'Planejamento personalizado para cada caso'
     },
     {
-      title: '32',
-      text: 'Turmas de alunos formados'
+      title: 'Preciso',
+      text: 'Foco em saude, funcao e estetica do sorriso'
     }
   ]
 
