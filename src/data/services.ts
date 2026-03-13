@@ -2,6 +2,13 @@ import implanteImage from '@/images/services/implante-dentario.jpg'
 import clareamentoImage from '@/images/services/clareamento-dental.jpg'
 import lentesImage from '@/images/services/lentes-de-contato-dental.jpg'
 
+const ortodontiaImage =
+  'https://images.pexels.com/photos/6529056/pexels-photo-6529056.jpeg?auto=compress&cs=tinysrgb&w=800'
+const proteseDentariaImage =
+  'https://images.pexels.com/photos/18662954/pexels-photo-18662954.jpeg?auto=compress&cs=tinysrgb&w=800'
+const endodontiaImage =
+  'https://images.pexels.com/photos/6627694/pexels-photo-6627694.jpeg?auto=compress&cs=tinysrgb&w=800'
+
 export interface Service {
   id: string
   category: 'odontologia'
@@ -87,7 +94,7 @@ export const services: Service[] = [
       'Resultados duradouros',
       'Acompanhamento personalizado'
     ],
-    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop',
+    image: ortodontiaImage,
     icon: 'tooth',
     price: 'A partir de R$ 1.800',
     duration: '12-24 meses',
@@ -106,7 +113,7 @@ export const services: Service[] = [
       'Conforto e funcionalidade',
       'Durabilidade superior'
     ],
-    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop',
+    image: proteseDentariaImage,
     icon: 'tooth',
     price: 'A partir de R$ 2.000',
     duration: '2-4 sessões',
@@ -125,7 +132,7 @@ export const services: Service[] = [
       'Anestesia eficaz',
       'Alta taxa de sucesso'
     ],
-    image: 'https://images.unsplash.com/photo-1606811971618-4486d14f3f99?w=800&h=600&fit=crop',
+    image: endodontiaImage,
     icon: 'tooth',
     price: 'A partir de R$ 800',
     duration: '1-2 sessões',

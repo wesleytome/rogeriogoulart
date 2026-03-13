@@ -1,6 +1,5 @@
 import { Link } from 'react-router-dom'
 import { Button } from '@/components/ui/button'
-import { Badge } from '@/components/ui/badge'
 import { services } from '@/data/services'
 import { AspectRatio } from '@/components/ui/aspect-ratio'
 import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
@@ -15,7 +14,6 @@ interface ServiceCardProps {
 function ServiceCard({ service }: ServiceCardProps) {
   return (
     <div className="service-card-wrapper card-hover group h-full rounded-lg overflow-hidden flex flex-col">
-      {/* Imagem com badge sobreposta */}
       <div className="relative w-full overflow-hidden">
         <AspectRatio ratio={4 / 3}>
           <img
@@ -24,12 +22,6 @@ function ServiceCard({ service }: ServiceCardProps) {
             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
           />
         </AspectRatio>
-        {/* Badge sobre a imagem */}
-        <div className="absolute top-4 right-4 z-10">
-          <Badge className="badge-odontologia">
-            Odontologia
-          </Badge>
-        </div>
       </div>
       
       {/* Conteúdo */}

@@ -212,11 +212,6 @@
     @apply text-brand border-none;
   }
 
-  .badge-odontologia {
-    background-color: color-mix(in srgb, var(--color-brand) 10%, transparent);
-    @apply text-brand border-none;
-  }
-
   .badge-destaque {
     background-color: color-mix(in srgb, var(--color-brand) 10%, transparent);
     @apply text-brand border border-brand;

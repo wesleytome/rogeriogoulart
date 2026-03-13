@@ -3,6 +3,8 @@ export interface BusinessInfo {
   doctorName: string
   address: {
     street: string
+    number: string
+    district: string
     city: string
     state: string
     zipCode: string
@@ -30,10 +32,12 @@ export const businessInfo: BusinessInfo = {
   name: 'Clínica Rogério Goulart',
   doctorName: 'Dr. Rogério Goulart',
   address: {
-    street: 'Av. das Américas, 123',
+    street: 'Rua Marangá',
+    number: '960',
+    district: 'Praça Seca',
     city: 'Rio de Janeiro',
     state: 'RJ',
-    zipCode: '01234-567'
+    zipCode: '21321-060'
   },
   phones: {
     main: '(21) 98079-9575',

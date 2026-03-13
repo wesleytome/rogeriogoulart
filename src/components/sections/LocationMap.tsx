@@ -22,12 +22,11 @@ const DefaultIcon = L.icon({
 L.Marker.prototype.options.icon = DefaultIcon
 
 export function LocationMap() {
-  const latitude = -23.00139106245931
-  const longitude = -43.42108961857137
+  const latitude = -22.9022691
+  const longitude = -43.348154
+  const addressLine = `${businessInfo.address.street}, ${businessInfo.address.number} - ${businessInfo.address.district}`
   
-  const googleMapsUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
-    `${businessInfo.address.street}, ${businessInfo.address.city}, ${businessInfo.address.state}`
-  )}`
+  const googleMapsUrl = `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}&travelmode=driving`
 
   return (
     <section className="py-12 md:py-16 bg-brand">
@@ -37,7 +36,7 @@ export function LocationMap() {
           <div className="relative w-full h-[300px] sm:h-[400px] lg:h-full">
             <MapContainer
               center={[latitude, longitude]}
-              zoom={15}
+              zoom={17}
               style={{ height: '100%', width: '100%', zIndex: 0 }}
               scrollWheelZoom={false}
             >
@@ -48,7 +47,8 @@ export function LocationMap() {
               <Marker position={[latitude, longitude]}>
                 <Popup>
                   <strong>{businessInfo.name}</strong><br />
-                  {businessInfo.address.street}, {businessInfo.address.city}
+                  {addressLine}<br />
+                  {businessInfo.address.city}, {businessInfo.address.state} - {businessInfo.address.zipCode}
                 </Popup>
               </Marker>
             </MapContainer>
@@ -123,7 +123,9 @@ export function LocationMap() {
                   <div className="flex items-start gap-3 text-sm sm:text-base">
                     <MapPin className="h-5 w-5 flex-shrink-0 mt-0.5 text-brand" />
                     <span>
-                      {businessInfo.address.street}, {businessInfo.address.city}
+                      {addressLine}
+                      <br />
+                      {businessInfo.address.city}, {businessInfo.address.state} - {businessInfo.address.zipCode}
                     </span>
                   </div>
                 </div>

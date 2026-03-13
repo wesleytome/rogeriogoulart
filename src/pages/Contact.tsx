@@ -108,7 +108,7 @@ export function Contact() {
                     <div>
                       <h3 className="font-semibold text-foreground mb-1">Endereço</h3>
                       <p className="text-muted-foreground">
-                        {businessInfo.address.street}
+                        {businessInfo.address.street}, {businessInfo.address.number} - {businessInfo.address.district}
                         <br />
                         {businessInfo.address.city}, {businessInfo.address.state} - {businessInfo.address.zipCode}
                       </p>
