@@ -4,10 +4,12 @@ PROJECT_NAME := rogeriogoulart
 APP_SERVICE := rogeriogoulart
 COMPOSE := docker compose -p $(PROJECT_NAME)
 PNPM ?= pnpm
+LOCAL_PNPM := $(shell command -v $(PNPM) 2>/dev/null)
+PNPM_RUN := $(if $(LOCAL_PNPM),$(PNPM),$(COMPOSE) exec -T $(APP_SERVICE) $(PNPM))
 DEV_PORT ?= 5174
 PREVIEW_PORT ?= 4173
 
-.PHONY: help install dev build preview lint clean docker-build docker-up docker-down docker-restart docker-logs status deploy stop
+.PHONY: help install dev build preview typecheck lint check predeploy clean docker-build docker-up docker-down docker-restart docker-logs status deploy stop
 
 help:
 	@echo "Comandos disponíveis:"
@@ -15,7 +17,10 @@ help:
 	@echo "  make dev             - Roda ambiente local (fora do Docker)"
 	@echo "  make build           - Gera build de produção"
 	@echo "  make preview         - Faz preview local do build"
+	@echo "  make typecheck       - Executa TypeScript sem gerar deploy"
 	@echo "  make lint            - Executa lint"
+	@echo "  make check           - Executa lint + build (pré-produção)"
+	@echo "  make predeploy       - Roda check e orienta a publicar só se tudo passar"
 	@echo "  make clean           - Remove pasta dist"
 	@echo "  make docker-build    - Build da imagem Docker"
 	@echo "  make docker-up       - Sobe ambiente Docker em background"
@@ -27,19 +32,29 @@ help:
 	@echo "  make stop            - Alias para docker-down"
 
 install:
-	$(PNPM) install --frozen-lockfile
+	$(PNPM_RUN) install --frozen-lockfile
 
 dev:
 	$(PNPM) run dev --host --port $(DEV_PORT)
 
 build:
-	$(PNPM) run build
+	$(PNPM_RUN) run build
 
 preview:
-	$(PNPM) run preview --host --port $(PREVIEW_PORT)
+	$(PNPM_RUN) run preview --host --port $(PREVIEW_PORT)
+
+typecheck:
+	$(PNPM_RUN) run typecheck
 
 lint:
-	$(PNPM) run lint
+	$(PNPM_RUN) run lint
+
+check: lint build
+
+predeploy: check
+	@echo ""
+	@echo "Checks concluídos com sucesso."
+	@echo "Antes de enviar para produção, revise o diff e publique só com build/lint aprovados."
 
 clean:
 	rm -rf dist

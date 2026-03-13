@@ -66,10 +66,6 @@ export function ThemeSwitcher() {
     }
   }, [showPaletteEditor])
 
-  useEffect(() => {
-    setCopied(false)
-  }, [customPalette])
-
   const exportedPalette = useMemo(
     () =>
       JSON.stringify(
@@ -100,6 +96,11 @@ export function ThemeSwitcher() {
     } catch {
       setCopied(false)
     }
+  }
+
+  const handlePaletteColorChange = (key: ThemeColorKey, value: string) => {
+    setCopied(false)
+    setCustomPaletteColor(key, value)
   }
 
   return (
@@ -170,7 +171,7 @@ export function ThemeSwitcher() {
                     <input
                       type="color"
                       value={customPalette[field.key]}
-                      onChange={(event) => setCustomPaletteColor(field.key, event.target.value)}
+                      onChange={(event) => handlePaletteColorChange(field.key, event.target.value)}
                       className="h-10 w-10 rounded border border-border cursor-pointer bg-transparent"
                       title={field.label}
                     />
@@ -182,7 +183,7 @@ export function ThemeSwitcher() {
                         onChange={(event) => {
                           const value = event.target.value.toUpperCase()
                           if (/^#[0-9A-F]{6}$/i.test(value)) {
-                            setCustomPaletteColor(field.key, value)
+                            handlePaletteColorChange(field.key, value)
                           }
                         }}
                         className="mt-1 w-full bg-transparent text-xs font-mono text-muted-foreground outline-none"

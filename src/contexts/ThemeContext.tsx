@@ -2,6 +2,7 @@ import { createContext, useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 
 export type ThemeName = 'teal' | 'pine' | 'sage' | 'sage-wedding' | 'sage-blue' | 'custom'
+type PresetThemeName = Exclude<ThemeName, 'custom'>
 
 export interface ThemeColors {
   brand: string
@@ -30,7 +31,7 @@ export interface Theme {
   colors: ThemeColors
 }
 
-const DEFAULT_THEME_NAME: ThemeName = 'teal'
+const DEFAULT_THEME_NAME: PresetThemeName = 'teal'
 const THEME_STORAGE_VERSION_KEY = 'themeVersion'
 const CUSTOM_THEME_PALETTE_KEY = 'customThemePalette'
 const CURRENT_THEME_STORAGE_VERSION = '2026-03-full-palette-editor'
@@ -64,7 +65,7 @@ const baseThemeColors = {
   input: '#D7DDE1',
 } as const
 
-const themes: Record<Exclude<ThemeName, 'custom'>, Theme> = {
+const themes: Record<PresetThemeName, Theme> = {
   teal: {
     name: 'teal',
     label: 'Navy Gold',
