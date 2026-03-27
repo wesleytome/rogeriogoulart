@@ -9,6 +9,7 @@ export interface ThemeColors {
   brandForeground: string
   background: string
   foreground: string
+  shellBackground?: string
   muted: string
   mutedForeground: string
   card: string
@@ -20,6 +21,14 @@ export interface ThemeColors {
   secondaryForeground?: string
   accent?: string
   accentForeground?: string
+  sectionLabel?: string
+  sectionTitle?: string
+  cardHover?: string
+  cardHoverForeground?: string
+  heroButton?: string
+  heroButtonForeground?: string
+  cardButton?: string
+  cardButtonForeground?: string
 }
 
 export type EditableThemeColors = Required<ThemeColors>
@@ -34,7 +43,7 @@ export interface Theme {
 const DEFAULT_THEME_NAME: PresetThemeName = 'teal'
 const THEME_STORAGE_VERSION_KEY = 'themeVersion'
 const CUSTOM_THEME_PALETTE_KEY = 'customThemePalette'
-const CURRENT_THEME_STORAGE_VERSION = '2026-03-full-palette-editor'
+const CURRENT_THEME_STORAGE_VERSION = '2026-03-main-theme-202e4b'
 
 const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
   'brand',
@@ -45,10 +54,19 @@ const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
   'accentForeground',
   'background',
   'foreground',
+  'shellBackground',
   'muted',
   'mutedForeground',
   'card',
   'cardForeground',
+  'sectionLabel',
+  'sectionTitle',
+  'cardHover',
+  'cardHoverForeground',
+  'heroButton',
+  'heroButtonForeground',
+  'cardButton',
+  'cardButtonForeground',
   'border',
   'input',
   'ring',
@@ -56,11 +74,20 @@ const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
 
 const baseThemeColors = {
   background: '#F5EFEB',
-  foreground: '#1A4262',
+  foreground: '#4E535F',
+  shellBackground: '#202E4B',
   muted: '#EFEFEF',
   mutedForeground: '#5F788B',
   card: '#FFFDF8',
   cardForeground: '#1A4262',
+  sectionLabel: '#567C8D',
+  sectionTitle: '#202E4B',
+  cardHover: '#202E4B',
+  cardHoverForeground: '#FFFFFF',
+  heroButton: '#D7C2A1',
+  heroButtonForeground: '#1A4262',
+  cardButton: '#202E4B',
+  cardButtonForeground: '#FFFFFF',
   border: '#D7DDE1',
   input: '#D7DDE1',
 } as const
@@ -70,7 +97,7 @@ const themes: Record<PresetThemeName, Theme> = {
     name: 'teal',
     label: 'Navy Gold',
     colors: {
-      brand: '#1A4262',
+      brand: '#202E4B',
       brandForeground: '#FFFFFF',
       ...baseThemeColors,
       ring: '#1A4262',
@@ -190,22 +217,36 @@ function rgbToHex(r: number, g: number, b: number): string {
 }
 
 function normalizeThemeColors(colors: ThemeColors): EditableThemeColors {
+  const secondary = colors.secondary || colors.brand
+  const secondaryForeground = colors.secondaryForeground || colors.brandForeground
+  const accent = colors.accent || secondary || colors.brand
+  const accentForeground = colors.accentForeground || secondaryForeground || colors.brandForeground
+
   return {
     brand: colors.brand,
     brandForeground: colors.brandForeground,
     background: colors.background,
     foreground: colors.foreground,
+    shellBackground: colors.shellBackground || colors.brand,
     muted: colors.muted,
     mutedForeground: colors.mutedForeground,
     card: colors.card,
     cardForeground: colors.cardForeground,
+    sectionLabel: colors.sectionLabel || secondary,
+    sectionTitle: colors.sectionTitle || colors.brand || colors.foreground,
+    cardHover: colors.cardHover || colors.brand,
+    cardHoverForeground: colors.cardHoverForeground || colors.brandForeground,
+    heroButton: colors.heroButton || accent,
+    heroButtonForeground: colors.heroButtonForeground || accentForeground,
+    cardButton: colors.cardButton || colors.brand,
+    cardButtonForeground: colors.cardButtonForeground || colors.brandForeground,
     border: colors.border,
     input: colors.input,
     ring: colors.ring,
-    secondary: colors.secondary || colors.brand,
-    secondaryForeground: colors.secondaryForeground || colors.brandForeground,
-    accent: colors.accent || colors.secondary || colors.brand,
-    accentForeground: colors.accentForeground || colors.secondaryForeground || colors.brandForeground,
+    secondary,
+    secondaryForeground,
+    accent,
+    accentForeground,
   }
 }
 

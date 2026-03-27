@@ -319,7 +319,7 @@ export function SEO({
 
     // Theme color (para mobile browsers)
     const themeColor =
-      getComputedStyle(document.documentElement).getPropertyValue('--color-brand').trim() || '#1A4262'
+      getComputedStyle(document.documentElement).getPropertyValue('--color-brand').trim() || '#202E4B'
     updateOrCreateMeta('name', 'theme-color', themeColor)
 
     // Mobile web app capable

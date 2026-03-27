@@ -32,14 +32,15 @@ function ServiceCard({ service, basePath }: ServiceCardProps) {
         </h3>
         
         {/* Descrição breve */}
-        <p className="service-card-description card-text text-sm leading-relaxed mb-6 flex-grow text-foreground/80">
+        <p className="service-card-description card-text text-sm leading-relaxed mb-6 flex-grow opacity-90">
           {service.shortDescription}
         </p>
       
         {/* Botão */}
         <Button
           asChild
-          className="w-full bg-foreground text-background hover:opacity-90 border-0 group/btn"
+          variant="card"
+          className="w-full group/btn"
         >
           <Link to={`${basePath}/${service.id}`}>
             Saiba Mais

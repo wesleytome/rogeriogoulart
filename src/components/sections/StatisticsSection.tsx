@@ -15,7 +15,7 @@ export function StatisticsSection() {
   ]
 
   return (
-    <section className="py-12 md:py-20 bg-foreground">
+    <section className="py-12 md:py-20 bg-brand">
       <div className="container-section">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 md:gap-12 max-w-5xl mx-auto">
           {statistics.map((stat, index) => (
@@ -23,7 +23,7 @@ export function StatisticsSection() {
               <h3 className="font-bold text-accent text-4xl sm:text-5xl md:text-[2.7em]">
                 {stat.title}
               </h3>
-              <p className="text-sm sm:text-base md:text-lg text-background mt-2">
+              <p className="text-sm sm:text-base md:text-lg text-brand-foreground mt-2">
                 {stat.text}
               </p>
             </div>

@@ -9,7 +9,7 @@ const paletteSections: Array<{
   fields: Array<{ key: ThemeColorKey; label: string }>
 }> = [
   {
-    title: 'Marca e Acoes',
+    title: 'Identidade',
     fields: [
       { key: 'brand', label: 'Brand' },
       { key: 'brandForeground', label: 'Texto Brand' },
@@ -20,11 +20,12 @@ const paletteSections: Array<{
     ],
   },
   {
-    title: 'Fundos e Superficies',
+    title: 'Layout e Fundos',
     fields: [
-      { key: 'background', label: 'Background' },
+      { key: 'shellBackground', label: 'Fundo Externo' },
+      { key: 'background', label: 'Fundo Interno' },
+      { key: 'muted', label: 'Fundo Alternado' },
       { key: 'card', label: 'Card' },
-      { key: 'muted', label: 'Muted' },
       { key: 'border', label: 'Border' },
       { key: 'input', label: 'Input' },
       { key: 'ring', label: 'Ring' },
@@ -34,8 +35,21 @@ const paletteSections: Array<{
     title: 'Textos',
     fields: [
       { key: 'foreground', label: 'Texto Principal' },
+      { key: 'sectionLabel', label: 'Texto Acima do Titulo' },
+      { key: 'sectionTitle', label: 'Titulo de Secao' },
       { key: 'cardForeground', label: 'Texto Card' },
       { key: 'mutedForeground', label: 'Texto Muted' },
+    ],
+  },
+  {
+    title: 'Cards e Botoes',
+    fields: [
+      { key: 'cardHover', label: 'Hover do Card' },
+      { key: 'cardHoverForeground', label: 'Texto no Hover' },
+      { key: 'heroButton', label: 'Botao Hero' },
+      { key: 'heroButtonForeground', label: 'Texto Botao Hero' },
+      { key: 'cardButton', label: 'Botao Card / Mapa' },
+      { key: 'cardButtonForeground', label: 'Texto Botao Card' },
     ],
   },
 ]
@@ -139,7 +153,7 @@ export function ThemeSwitcher() {
               : 'border-border hover:border-brand/50 hover:scale-105'
             }
           `}
-          style={{ background: 'linear-gradient(135deg, #1A4262 0%, #567C8D 55%, #D7C2A1 100%)' }}
+          style={{ background: 'linear-gradient(135deg, #202E4B 0%, #567C8D 55%, #D7C2A1 100%)' }}
           aria-label="Editar paleta"
           title="Editar paleta completa"
         >
@@ -156,7 +170,7 @@ export function ThemeSwitcher() {
           <div className="space-y-1">
             <h3 className="text-sm font-semibold text-foreground">Editor de paleta</h3>
             <p className="text-xs text-muted-foreground">
-              Ajuste as cores do site, veja o preview ao vivo e copie o bloco abaixo para me enviar aqui.
+              Ajuste separadamente shell externo, textos, titulos, cards e botoes. O preview aplica no site em tempo real.
             </p>
           </div>
 

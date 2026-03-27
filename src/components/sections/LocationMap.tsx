@@ -83,7 +83,8 @@ export function LocationMap() {
                 <div className="mt-6">
                   <Button 
                     asChild
-                    className="bg-foreground text-background hover:opacity-90 w-full"
+                    variant="card"
+                    className="w-full"
                   >
                     <Link to="/contato" className="flex items-center justify-center gap-2">
                       <Calendar className="h-4 w-4" />
@@ -134,7 +135,8 @@ export function LocationMap() {
                 <div className="mt-6">
                   <Button 
                     asChild
-                    className="bg-foreground text-background hover:opacity-90 w-full"
+                    variant="card"
+                    className="w-full"
                   >
                     <a
                       href={googleMapsUrl}

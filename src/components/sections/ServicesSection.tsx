@@ -39,7 +39,8 @@ function ServiceCard({ service }: ServiceCardProps) {
         {/* Botão com ícone */}
         <Button
           asChild
-          className="w-full bg-foreground text-background hover:opacity-90 border-0 group/btn"
+          variant="card"
+          className="w-full group/btn"
         >
           <Link to={`/odontologia/${service.id}`}>
             Saiba Mais
@@ -79,14 +80,14 @@ function ServiceCategoryBlock({
   return (
     <div className="grid grid-cols-1 lg:grid-cols-[300px_1fr] gap-6 md:gap-8 mt-10 md:mt-12">
       {/* Lista vertical à esquerda */}
-      <div className="bg-foreground p-6 rounded-lg">
-        <h3 className="text-xl font-bold text-brand mb-6">{categoryName}</h3>
+      <div className="bg-brand p-6 rounded-lg">
+        <h3 className="text-xl font-bold text-brand-foreground mb-6">{categoryName}</h3>
         <ul className="space-y-3 mb-6">
           {services.map((service) => (
             <li key={service.id}>
               <button
                 onClick={() => scrollToService(service.id)}
-                className="text-left w-full text-background hover:text-brand transition-colors text-sm"
+                className="text-left w-full text-brand-foreground hover:text-accent transition-colors text-sm"
               >
                 {service.title}
               </button>

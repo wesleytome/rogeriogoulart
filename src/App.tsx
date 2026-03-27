@@ -17,14 +17,14 @@ function AppContent() {
   const isHome = location.pathname === '/'
 
   return (
-    <div className="min-h-screen flex flex-col bg-foreground">
+    <div className="min-h-screen flex flex-col bg-app-shell">
       {!isHome && (
         <div className="w-full mx-auto px-0 sm:px-8 md:px-12 lg:px-16 xl:px-20 bg-card">
           <Menu />
         </div>
       )}
       {/* Container global com margens laterais - fundo escuro nas margens */}
-      <div className="w-full mx-auto px-0 sm:px-8 md:px-12 lg:px-16 xl:px-20 flex-grow bg-foreground">
+      <div className="w-full mx-auto px-0 sm:px-8 md:px-12 lg:px-16 xl:px-20 flex-grow bg-app-shell">
         <div className="w-full bg-card">
           <main className="flex-grow pt-16">
             <Routes>

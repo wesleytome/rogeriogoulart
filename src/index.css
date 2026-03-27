@@ -19,17 +19,26 @@
 @theme {
   /* Cores Base em RGB para suporte a alpha */
   /* Valores padrão - serão sobrescritos pelo ThemeContext */
-  --color-brand: #1A4262;
+  --color-brand: #202E4B;
   --color-brand-foreground: #FFFFFF;
   
   --color-background: #F5EFEB;
-  --color-foreground: #1A4262;
+  --color-foreground: #4E535F;
+  --color-shell-background: #202E4B;
   
   --color-muted: #EFEFEF;
   --color-muted-foreground: #5F788B;
   
   --color-card: #FFFDF8;
   --color-card-foreground: #1A4262;
+  --color-section-label: #567C8D;
+  --color-section-title: #202E4B;
+  --color-card-hover: #202E4B;
+  --color-card-hover-foreground: #FFFFFF;
+  --color-hero-button: #D7C2A1;
+  --color-hero-button-foreground: #1A4262;
+  --color-card-button: #202E4B;
+  --color-card-button-foreground: #FFFFFF;
   
   --color-border: #D7DDE1;
   --color-input: #D7DDE1;
@@ -150,7 +159,8 @@
   }
 
   .section-heading-primary {
-    @apply font-heading font-semibold text-foreground;
+    @apply font-heading font-semibold;
+    color: var(--color-section-title);
   }
 
   .section-heading-accent {
@@ -166,11 +176,13 @@
   }
   
   .section-label {
-    @apply text-foreground text-[15px] font-normal;
+    @apply text-[15px] font-normal;
+    color: var(--color-section-label);
   }
   
   .section-title {
-    @apply font-bold mb-2 text-foreground;
+    @apply font-bold mb-2;
+    color: var(--color-section-title);
     font-size: clamp(2rem, 5vw, 45px);
     line-height: 1.2;
   }
@@ -188,7 +200,9 @@
      ============================================ */
   
   .btn-primary {
-    @apply bg-accent text-accent-foreground rounded-[7px] transition-[filter];
+    @apply rounded-[7px] transition-[filter];
+    background-color: var(--color-hero-button);
+    color: var(--color-hero-button-foreground);
   }
 
   .btn-primary:hover {
@@ -196,15 +210,40 @@
   }
 
   .btn-secondary {
-    @apply bg-brand text-brand-foreground rounded-[7px] transition-all;
+    @apply rounded-[7px] transition-all;
+    background-color: var(--color-card-button);
+    color: var(--color-card-button-foreground);
   }
 
   .btn-secondary:hover {
     filter: brightness(110%);
   }
 
+  .btn-hero-action {
+    background-color: var(--color-hero-button);
+    color: var(--color-hero-button-foreground);
+  }
+
+  .btn-hero-action:hover {
+    filter: brightness(110%);
+  }
+
+  .btn-card-action {
+    background-color: var(--color-card-button);
+    color: var(--color-card-button-foreground);
+    border: 0;
+  }
+
+  .btn-card-action:hover {
+    filter: brightness(110%);
+  }
+
   .btn-nav {
     @apply bg-brand rounded-[7px] transition-opacity hover:opacity-80;
+  }
+
+  .bg-app-shell {
+    background-color: var(--color-shell-background);
   }
 
   /* ============================================
@@ -329,19 +368,21 @@
   
   .card-hover {
     @apply transition-all duration-300;
+    background-color: var(--color-card);
   }
   
   .card-hover:hover {
-    @apply bg-foreground;
+    background-color: var(--color-card-hover);
     transform: translateY(-4px);
   }
   
   .card-hover:hover .card-text {
-    @apply text-background;
+    color: var(--color-card-hover-foreground);
   }
   
   .card-text {
-    @apply text-foreground transition-colors duration-300;
+    @apply transition-colors duration-300;
+    color: var(--color-card-foreground);
   }
 
   /* ============================================

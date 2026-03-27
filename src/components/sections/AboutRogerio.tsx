@@ -59,7 +59,7 @@ export function AboutRogerio() {
                 className={`absolute px-2 py-1 md:px-3 md:py-1.5 rounded-full text-[10px] md:text-xs font-medium whitespace-nowrap z-10 shadow-sm hidden sm:block ${specialty.position} ${
                   specialty.variant === 'brand' 
                     ? 'bg-brand text-brand-foreground' 
-                    : 'bg-foreground text-brand'
+                    : 'bg-card text-brand border border-brand/10'
                 }`}
               >
                 {specialty.name}
@@ -69,30 +69,30 @@ export function AboutRogerio() {
         </div>
 
         {/* Lado direito - Conteúdo */}
-        <div className="w-full lg:w-1/2 flex items-center justify-center bg-foreground">
+        <div className="w-full lg:w-1/2 flex items-center justify-center bg-brand">
           <div className="space-y-4 sm:space-y-6 relative w-full max-w-2xl px-4 sm:px-6 md:px-12 lg:px-8 py-8 lg:py-0">
             {/* Badge pequeno */}
             <div>
-              <span className="inline-block px-3 py-1 text-xs font-medium text-brand">
+              <span className="inline-block px-3 py-1 text-xs font-medium text-accent">
                 — Sobre o Dr. Rogério
               </span>
             </div>
 
             {/* Título principal */}
             <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-display font-semibold leading-tight">
-              <span className="text-background">Quem é </span>
-              <span className="italic text-brand">Dr. Rogério Goulart?</span>
+              <span className="text-brand-foreground">Quem é </span>
+              <span className="italic text-accent">Dr. Rogério Goulart?</span>
             </h2>
 
             {/* Texto descritivo */}
-            <p className="text-sm sm:text-base leading-relaxed text-background/90">
+            <p className="text-sm sm:text-base leading-relaxed text-brand-foreground/90">
               Com mais de 15 anos de experiência em odontologia estética e reabilitadora,
               o Dr. Rogério Goulart é especialista certificado pelo IOA (Instituto de Odontologia Avançada) 
               e pelo CFO (Conselho Federal de Odontologia). Sua abordagem integrada combina técnicas 
               avançadas de odontologia para oferecer resultados naturais e funcionais que elevam a autoestima dos pacientes.
             </p>
 
-            <p className="text-sm sm:text-base leading-relaxed text-background/90">
+            <p className="text-sm sm:text-base leading-relaxed text-brand-foreground/90">
               Comprometido com a excelência e atualização constante, o Dr. Rogério investe 
               continuamente em educação e tecnologia de ponta para oferecer o melhor tratamento 
               personalizado a cada paciente.
@@ -103,16 +103,16 @@ export function AboutRogerio() {
               {statistics.map((stat, index) => (
                 <div key={index}>
                   <div className="flex items-baseline gap-0.5 sm:gap-1 mb-1 flex-wrap">
-                    <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-brand">
+                    <span className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold text-accent">
                       {stat.number}
                     </span>
                     {stat.suffix && (
-                      <span className="text-base sm:text-lg md:text-xl font-semibold text-brand">
+                      <span className="text-base sm:text-lg md:text-xl font-semibold text-accent">
                         {stat.suffix}
                       </span>
                     )}
                   </div>
-                  <p className="text-[10px] sm:text-xs md:text-sm font-medium text-background">
+                  <p className="text-[10px] sm:text-xs md:text-sm font-medium text-brand-foreground">
                     {stat.label}
                   </p>
                 </div>

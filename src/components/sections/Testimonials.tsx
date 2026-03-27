@@ -94,7 +94,7 @@ export function Testimonials() {
                 onClick={() => goToTestimonial(index)}
                 className={`transition-all rounded-full ${
                   index === currentIndex 
-                    ? 'bg-foreground w-6 h-2 rounded' 
+                    ? 'bg-brand w-6 h-2 rounded' 
                     : 'bg-border w-2 h-2'
                 }`}
                 aria-label={`Ir para depoimento ${index + 1}`}

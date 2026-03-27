@@ -39,7 +39,8 @@ function ServiceCard({ service }: ServiceCardProps) {
         {/* Botão com ícone */}
         <Button
           asChild
-          className="w-full bg-foreground text-background hover:opacity-90 border-0 group/btn"
+          variant="card"
+          className="w-full group/btn"
         >
           <Link to={`${basePath}/${service.id}`}>
             Saiba Mais

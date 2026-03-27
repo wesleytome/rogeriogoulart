@@ -7,17 +7,17 @@ import { services } from '@/data/services'
 
 export function Footer() {
   return (
-    <footer className="bg-foreground text-background">
+    <footer className="bg-brand text-brand-foreground">
       <div className="container-section py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Coluna 1: Logo e Descrição */}
           <div className="space-y-4">
             <div className="flex items-center space-x-2">
-              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-background/20 text-background">
+              <div className="flex h-10 w-10 items-center justify-center rounded-full bg-brand-foreground/20 text-brand-foreground">
                 <span className="text-xl font-bold">DA</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-lg font-body font-semibold text-background">
+                <span className="text-lg font-body font-semibold text-brand-foreground">
                   {businessInfo.name}
                 </span>
                 <span className="text-xs opacity-80">
@@ -67,7 +67,7 @@ export function Footer() {
 
           {/* Coluna 2: Links Institucionais */}
           <div className="space-y-4">
-            <h3 className="text-lg font-body font-semibold text-background">Institucional</h3>
+            <h3 className="text-lg font-body font-semibold text-brand-foreground">Institucional</h3>
             <ul className="space-y-2">
               <li>
                 <Link
@@ -102,7 +102,7 @@ export function Footer() {
                 </Link>
               </li>
             </ul>
-            <Separator className="bg-background/20" />
+            <Separator className="bg-brand-foreground/20" />
             <ul className="space-y-2">
               <li>
                 <a
@@ -125,7 +125,7 @@ export function Footer() {
 
           {/* Coluna 3: Serviços */}
           <div className="space-y-4">
-            <h3 className="text-lg font-body font-semibold text-background">Serviços</h3>
+            <h3 className="text-lg font-body font-semibold text-brand-foreground">Serviços</h3>
             <ul className="space-y-2">
               {services.slice(0, 6).map((service) => (
                 <li key={service.id}>
@@ -142,18 +142,18 @@ export function Footer() {
 
           {/* Coluna 4: Horários */}
           <div className="space-y-4">
-            <h3 className="text-lg font-body font-semibold text-background">Horários</h3>
+            <h3 className="text-lg font-body font-semibold text-brand-foreground">Horários</h3>
             <Table>
               <TableBody>
-                <TableRow className="border-background/20">
+                <TableRow className="border-brand-foreground/20">
                   <TableCell className="text-sm opacity-90">Segunda - Sexta</TableCell>
                   <TableCell className="text-sm opacity-90">8:00 - 18:00</TableCell>
                 </TableRow>
-                <TableRow className="border-background/20">
+                <TableRow className="border-brand-foreground/20">
                   <TableCell className="text-sm opacity-90">Sábado</TableCell>
                   <TableCell className="text-sm opacity-90">9:00 - 13:00</TableCell>
                 </TableRow>
-                <TableRow className="border-background/20">
+                <TableRow className="border-brand-foreground/20">
                   <TableCell className="text-sm opacity-90">Domingo</TableCell>
                   <TableCell className="text-sm opacity-90">Fechado</TableCell>
                 </TableRow>
@@ -162,7 +162,7 @@ export function Footer() {
           </div>
         </div>
 
-        <Separator className="my-8 bg-background/20" />
+        <Separator className="my-8 bg-brand-foreground/20" />
 
         {/* Bottom Bar */}
         <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm opacity-80">

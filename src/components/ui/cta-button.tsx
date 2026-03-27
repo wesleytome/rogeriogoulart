@@ -30,8 +30,8 @@ export function CTAButton({ to, children, className, size = 'default', variant =
   }
 
   const variantClasses = {
-    default: 'bg-accent text-accent-foreground',
-    dark: 'bg-brand text-brand-foreground',
+    default: 'btn-hero-action',
+    dark: 'btn-card-action',
   }
 
   return (
