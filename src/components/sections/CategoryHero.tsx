@@ -36,7 +36,7 @@ export function CategoryHero({ title, subtitle, description, image }: CategoryHe
             </h1>
 
             {/* Subtítulo */}
-            <p className="text-xl md:text-2xl text-brand mb-6">
+            <p className="text-xl md:text-2xl mb-6" style={{ color: '#D7C2A1' }}>
               {subtitle}
             </p>
 

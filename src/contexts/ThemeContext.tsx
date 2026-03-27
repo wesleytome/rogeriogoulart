@@ -57,7 +57,7 @@ const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
 const baseThemeColors = {
   background: '#F5EFEB',
   foreground: '#1A4262',
-  muted: '#C8D9E6',
+  muted: '#EFEFEF',
   mutedForeground: '#5F788B',
   card: '#FFFDF8',
   cardForeground: '#1A4262',

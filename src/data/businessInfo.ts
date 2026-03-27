@@ -61,6 +61,6 @@ export const businessInfo: BusinessInfo = {
     'Clareamento Dental',
     'Lentes de Contato Dental',
     'Prótese Dentária',
-    'Endodontia'
+    'Dentística Restauradora'
   ]
 }

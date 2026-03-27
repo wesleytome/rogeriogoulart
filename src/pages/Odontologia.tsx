@@ -7,6 +7,7 @@ import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
 import { TopSection } from '@/components/layout/TopSection'
 import { Menu } from '@/components/layout/Menu'
 import { businessInfo } from '@/data/businessInfo'
+import odontologiaHeroImage from '@/images/dr-rogerio-goullart_todos-os-servicos.jpg'
 
 export function Odontologia() {
   return (
@@ -31,7 +32,7 @@ export function Odontologia() {
         title="Sorrisos que transformam vidas"
         subtitle="Odontologia avançada com tecnologia de ponta"
         description="Oferecemos tratamentos odontológicos completos, desde implantes e próteses até clareamento e lentes de contato dental. Cada procedimento é realizado com precisão e cuidado para garantir resultados excepcionais."
-        image="https://images.unsplash.com/photo-1606811841689-23dfddce3e95?w=1200&h=800&fit=crop"
+        image={odontologiaHeroImage}
       />
 
       {/* Introdução */}

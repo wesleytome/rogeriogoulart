@@ -28,9 +28,9 @@ const statistics: Statistic[] = [
 const specialties = [
   { name: 'Odontologia Estética', variant: 'brand' as const, position: 'left-[-8%] top-[57%]' },
   { name: 'Implantes Dentários', variant: 'dark' as const, position: 'left-[93%] top-[57%] -translate-x-1/2' },
-  { name: 'Ortodontia', variant: 'brand' as const, position: 'top-[70%] right-[-1%]' },
+  { name: 'Dentística Restauradora', variant: 'brand' as const, position: 'top-[70%] right-[-1%]' },
   { name: 'Prótese Dentária', variant: 'dark' as const, position: 'bottom-[15%] right-[8%]' },
-  { name: 'Endodontia', variant: 'brand' as const, position: 'bottom-[8%] left-1/2 -translate-x-1/2' },
+  { name: 'Reabilitação Oral', variant: 'brand' as const, position: 'bottom-[8%] left-1/2 -translate-x-1/2' },
   { name: 'Lentes de Contato', variant: 'dark' as const, position: 'bottom-[12%] left-[8%]' },
   { name: 'Clareamento Dental', variant: 'brand' as const, position: 'top-[73%] left-[-2%] -translate-y-1/2' },
 ]

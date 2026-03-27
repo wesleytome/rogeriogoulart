@@ -187,9 +187,8 @@ export function About() {
                   'Implantes Dentários',
                   'Lentes de Contato Dental',
                   'Clareamento Dental',
-                  'Ortodontia',
                   'Prótese Dentária',
-                  'Endodontia',
+                  'Dentística Restauradora',
                 ].map((area) => (
                   <div 
                     key={area}

@@ -2,11 +2,9 @@ import implanteImage from '@/images/services/implante-dentario.jpg'
 import clareamentoImage from '@/images/services/clareamento-dental.jpg'
 import lentesImage from '@/images/services/lentes-de-contato-dental.jpg'
 
-const ortodontiaImage =
-  'https://images.pexels.com/photos/6529056/pexels-photo-6529056.jpeg?auto=compress&cs=tinysrgb&w=800'
 const proteseDentariaImage =
   'https://images.pexels.com/photos/18662954/pexels-photo-18662954.jpeg?auto=compress&cs=tinysrgb&w=800'
-const endodontiaImage =
+const dentisticaRestauradoraImage =
   'https://images.pexels.com/photos/6627694/pexels-photo-6627694.jpeg?auto=compress&cs=tinysrgb&w=800'
 
 export interface Service {
@@ -82,25 +80,6 @@ export const services: Service[] = [
     recovery: '3-7 dias'
   },
   {
-    id: 'ortodontia',
-    category: 'odontologia',
-    title: 'Ortodontia',
-    shortDescription: 'Alinhamento dental com aparelhos modernos e discretos para um sorriso perfeito.',
-    fullDescription: 'Tratamento ortodôntico completo com aparelhos fixos, móveis e alinhadores transparentes. Corrigimos problemas de alinhamento, mordida e espaçamento dental.',
-    benefits: [
-      'Aparelhos modernos e discretos',
-      'Alinhadores transparentes disponíveis',
-      'Correção de mordida e alinhamento',
-      'Resultados duradouros',
-      'Acompanhamento personalizado'
-    ],
-    image: ortodontiaImage,
-    icon: 'tooth',
-    price: 'A partir de R$ 1.800',
-    duration: '12-24 meses',
-    recovery: 'Contínuo'
-  },
-  {
     id: 'protese-dentaria',
     category: 'odontologia',
     title: 'Prótese Dentária',
@@ -120,22 +99,22 @@ export const services: Service[] = [
     recovery: '7-14 dias'
   },
   {
-    id: 'endodontia',
+    id: 'dentistica-restauradora',
     category: 'odontologia',
-    title: 'Endodontia',
-    shortDescription: 'Tratamento de canal com técnicas modernas e indolores para preservar seus dentes.',
-    fullDescription: 'Tratamento endodôntico (canal) realizado com técnicas modernas, equipamentos de última geração e anestesia eficaz, garantindo conforto e preservação do dente.',
+    title: 'Dentística Restauradora',
+    shortDescription: 'Restaura dentes com naturalidade, função e acabamento estético em tratamentos conservadores.',
+    fullDescription: 'A dentística restauradora devolve forma, função e estética aos dentes comprometidos por cáries, fraturas, desgastes ou restaurações antigas. O planejamento é individualizado para preservar ao máximo a estrutura dental e garantir um resultado harmônico e duradouro.',
     benefits: [
-      'Técnicas modernas e indolores',
-      'Preservação do dente natural',
-      'Equipamentos de última geração',
-      'Anestesia eficaz',
-      'Alta taxa de sucesso'
+      'Recupera forma e função mastigatória',
+      'Melhora estética com acabamento natural',
+      'Preserva o máximo da estrutura dental',
+      'Restaurações em resina com alta precisão',
+      'Tratamento individualizado para cada caso'
     ],
-    image: endodontiaImage,
+    image: dentisticaRestauradoraImage,
     icon: 'tooth',
-    price: 'A partir de R$ 800',
-    duration: '1-2 sessões',
-    recovery: '2-3 dias'
+    price: 'A partir de R$ 450',
+    duration: '40-90 minutos',
+    recovery: 'Imediato'
   }
 ]
