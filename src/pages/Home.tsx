@@ -11,24 +11,31 @@ import { Menu } from '@/components/layout/Menu'
 import { businessInfo } from '@/data/businessInfo'
 
 export function Home() {
+  const socialTitle = 'Dr. Rogério Goulart | Santos & Goulart Odontologia'
+  const socialDescription =
+    'Odontologia reabilitadora e estética na Praça Seca, com atendimento individualizado para recuperar saúde, função e confiança.'
+
   return (
     <>
       <SEO
         title={`Início | ${businessInfo.name} - Odontologia`}
-        description={businessInfo.description}
+        description={socialDescription}
         canonical="/"
         keywords={`${businessInfo.specialties.join(', ')}, odontologia, dentista rio de janeiro, implantes dentários, clareamento dental, lentes de contato dental, prótese dentária, endodontia`}
-        ogTitle={`${businessInfo.name} - Odontologia`}
-        ogDescription={businessInfo.description}
+        ogTitle={socialTitle}
+        ogDescription={socialDescription}
         ogImage="/images/og-image-rogerio-goulart.png"
         ogImageWidth={1200}
         ogImageHeight={630}
         ogImageType="image/png"
-        ogImageAlt={`${businessInfo.doctorName} - Especialista em Odontologia`}
+        ogImageAlt={`${businessInfo.doctorName} - Odontologia reabilitadora e estética`}
         ogImageSquare="/images/og-image-rogerio-goulart-1x1.png"
         ogType="website"
         ogUrl="/"
         twitterCard="summary_large_image"
+        twitterTitle={socialTitle}
+        twitterDescription={socialDescription}
+        ogSiteName="Clínica Santos & Goulart Odontologia"
       />
       <TopSection>
         <Menu transparent />

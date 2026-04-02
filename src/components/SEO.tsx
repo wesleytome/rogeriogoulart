@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import { businessInfo } from '@/data/businessInfo'
 
-const SOCIAL_IMAGE_VERSION = '20260402-1'
+const SOCIAL_IMAGE_VERSION = '20260402-2'
 
 interface SEOProps {
   title?: string
