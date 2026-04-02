@@ -1,6 +1,8 @@
 import { useEffect } from 'react'
 import { businessInfo } from '@/data/businessInfo'
 
+const SOCIAL_IMAGE_VERSION = '20260402-1'
+
 interface SEOProps {
   title?: string
   description?: string
@@ -40,6 +42,12 @@ const getFullUrl = (url?: string): string => {
   const origin = window.location.origin
   const path = url.startsWith('/') ? url : `/${url}`
   return `${origin}${path}`
+}
+
+const withImageVersion = (url?: string): string | undefined => {
+  if (!url) return url
+  const separator = url.includes('?') ? '&' : '?'
+  return `${url}${separator}v=${SOCIAL_IMAGE_VERSION}`
 }
 
 /**
@@ -177,7 +185,7 @@ export function SEO({
 
     // og:image - Tags completas para compartilhamento social
     if (ogImage) {
-      const fullOgImage = getFullUrl(ogImage)
+      const fullOgImage = getFullUrl(withImageVersion(ogImage))
       
       // og:image (URL principal)
       updateOrCreateMeta('property', 'og:image', fullOgImage)
@@ -255,7 +263,7 @@ export function SEO({
     // Para Twitter Card "summary", preferir imagem quadrada (1:1) se disponível
     // Para "summary_large_image", usar imagem retangular (1200x630)
     if (twitterImage) {
-      const fullTwitterImage = getFullUrl(twitterImage)
+      const fullTwitterImage = getFullUrl(withImageVersion(twitterImage))
       updateOrCreateMeta('name', 'twitter:image', fullTwitterImage)
       // twitter:image:alt (texto alternativo para a imagem do Twitter)
       if (twitterImageAlt) {
@@ -265,14 +273,14 @@ export function SEO({
       }
     } else if (twitterCard === 'summary' && ogImageSquare) {
       // Para Twitter summary card, usar imagem quadrada se disponível
-      const fullSquareImage = getFullUrl(ogImageSquare)
+      const fullSquareImage = getFullUrl(withImageVersion(ogImageSquare))
       updateOrCreateMeta('name', 'twitter:image', fullSquareImage)
       if (ogImageAlt || ogTitle || title) {
         updateOrCreateMeta('name', 'twitter:image:alt', ogImageAlt || ogTitle || title || '')
       }
     } else if (ogImage) {
       // Para summary_large_image ou quando não há imagem quadrada, usar imagem retangular
-      const fullOgImage = getFullUrl(ogImage)
+      const fullOgImage = getFullUrl(withImageVersion(ogImage))
       updateOrCreateMeta('name', 'twitter:image', fullOgImage)
       // twitter:image:alt (usar o mesmo alt da imagem OG se disponível)
       if (ogImageAlt || ogTitle || title) {
@@ -280,7 +288,7 @@ export function SEO({
       }
     } else if (ogImageSquare) {
       // Fallback: usar imagem quadrada se não houver imagem retangular
-      const fullSquareImage = getFullUrl(ogImageSquare)
+      const fullSquareImage = getFullUrl(withImageVersion(ogImageSquare))
       updateOrCreateMeta('name', 'twitter:image', fullSquareImage)
       if (ogImageAlt || ogTitle || title) {
         updateOrCreateMeta('name', 'twitter:image:alt', ogImageAlt || ogTitle || title || '')
