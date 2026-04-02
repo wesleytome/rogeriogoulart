@@ -9,7 +9,6 @@ import {
   SheetTrigger,
 } from '@/components/ui/sheet'
 import { ThemeSwitcher } from '@/components/ThemeSwitcher'
-import { ImageSwitcher } from '@/components/ImageSwitcher'
 import { businessInfo } from '@/data/businessInfo'
 import { cn } from '@/lib/utils'
 
@@ -92,10 +91,9 @@ export function Menu({ transparent = false }: MenuProps) {
               </Link>
             </nav>
 
-            {/* Right: Theme Switcher + Image Switcher + Phone */}
+            {/* Right: Theme Switcher + Phone */}
             <div className="flex items-center gap-4">
               <ThemeSwitcher />
-              <ImageSwitcher />
               <a 
                 href={`https://wa.me/${businessInfo.phones.whatsapp.replace(/\D/g, '')}`}
                 target="_blank"

@@ -6,7 +6,9 @@ export function HeaderSection() {
   const imageClassName =
     currentImage.name === 'rogerio-groulart-02'
       ? 'doctor-image doctor-image-02'
-      : 'doctor-image'
+      : currentImage.name === 'dr-rogerio-goulart-01'
+        ? 'doctor-image doctor-image-01'
+        : 'doctor-image'
 
   return (
     <section className="relative w-full overflow-hidden">
@@ -65,7 +67,11 @@ export function HeaderSection() {
                 </h2>
                 <p className="leading-relaxed text-foreground w-full lg:max-w-md" style={{ lineHeight: '1.4' }}>
                   <span className="text-base sm:text-lg font-light xl:text-xl">
-                    Tratamentos planejados de forma individual para cuidar do seu sorriso com seguranca, clareza e naturalidade.
+                    Tratamentos planejados de forma individual
+                    <br className="hidden max-[769px]:block" />
+                    para cuidar do seu sorriso com seguranca,
+                    <br className="hidden max-[769px]:block" />
+                    clareza e naturalidade.
                   </span>
                 </p>
               </div>

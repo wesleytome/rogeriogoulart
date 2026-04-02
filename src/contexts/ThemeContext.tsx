@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from 'react'
 import type { ReactNode } from 'react'
 
-export type ThemeName = 'teal' | 'pine' | 'sage' | 'sage-wedding' | 'sage-blue' | 'custom'
+export type ThemeName = 'default' | 'blue' | 'graphite' | 'custom'
 type PresetThemeName = Exclude<ThemeName, 'custom'>
 
 export interface ThemeColors {
@@ -40,10 +40,10 @@ export interface Theme {
   colors: ThemeColors
 }
 
-const DEFAULT_THEME_NAME: PresetThemeName = 'teal'
+const DEFAULT_THEME_NAME: PresetThemeName = 'default'
 const THEME_STORAGE_VERSION_KEY = 'themeVersion'
 const CUSTOM_THEME_PALETTE_KEY = 'customThemePalette'
-const CURRENT_THEME_STORAGE_VERSION = '2026-03-main-theme-202e4b'
+const CURRENT_THEME_STORAGE_VERSION = '2026-04-default-theme-302d46'
 
 const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
   'brand',
@@ -75,31 +75,61 @@ const EDITABLE_THEME_COLOR_KEYS: ThemeColorKey[] = [
 const baseThemeColors = {
   background: '#F5EFEB',
   foreground: '#4E535F',
-  shellBackground: '#202E4B',
+  shellBackground: '#302D46',
   muted: '#EFEFEF',
   mutedForeground: '#5F788B',
   card: '#FFFDF8',
-  cardForeground: '#1A4262',
-  sectionLabel: '#567C8D',
-  sectionTitle: '#202E4B',
+  cardForeground: '#2B283F',
+  sectionLabel: '#D7C2A1',
+  sectionTitle: '#2B283F',
   cardHover: '#202E4B',
   cardHoverForeground: '#FFFFFF',
   heroButton: '#D7C2A1',
-  heroButtonForeground: '#1A4262',
-  cardButton: '#202E4B',
+  heroButtonForeground: '#2B283F',
+  cardButton: '#302D46',
   cardButtonForeground: '#FFFFFF',
   border: '#D7DDE1',
   input: '#D7DDE1',
 } as const
 
 const themes: Record<PresetThemeName, Theme> = {
-  teal: {
-    name: 'teal',
+  default: {
+    name: 'default',
+    label: 'Plum Gold',
+    colors: {
+      brand: '#302D46',
+      brandForeground: '#FFFFFF',
+      ...baseThemeColors,
+      ring: '#2B283F',
+      secondary: '#567C8D',
+      secondaryForeground: '#FFFFFF',
+      accent: '#D7C2A1',
+      accentForeground: '#2B283F',
+    },
+  },
+  blue: {
+    name: 'blue',
     label: 'Navy Gold',
     colors: {
       brand: '#202E4B',
       brandForeground: '#FFFFFF',
-      ...baseThemeColors,
+      background: '#F5EFEB',
+      foreground: '#4E535F',
+      shellBackground: '#202E4B',
+      muted: '#EFEFEF',
+      mutedForeground: '#5F788B',
+      card: '#FFFDF8',
+      cardForeground: '#1A4262',
+      sectionLabel: '#567C8D',
+      sectionTitle: '#202E4B',
+      cardHover: '#202E4B',
+      cardHoverForeground: '#FFFFFF',
+      heroButton: '#D7C2A1',
+      heroButtonForeground: '#1A4262',
+      cardButton: '#202E4B',
+      cardButtonForeground: '#FFFFFF',
+      border: '#D7DDE1',
+      input: '#D7DDE1',
       ring: '#1A4262',
       secondary: '#567C8D',
       secondaryForeground: '#FFFFFF',
@@ -107,80 +137,34 @@ const themes: Record<PresetThemeName, Theme> = {
       accentForeground: '#1A4262',
     },
   },
-  pine: {
-    name: 'pine',
-    label: 'Pine & Jade',
+  graphite: {
+    name: 'graphite',
+    label: 'Graphite Gold',
     colors: {
-      brand: '#17544D',
+      brand: '#252429',
       brandForeground: '#FFFFFF',
-      background: '#F7F5F4',
-      foreground: '#212020',
-      muted: '#E9E5DF',
-      mutedForeground: '#6B7280',
-      card: '#FFFFFF',
-      cardForeground: '#212020',
-      border: '#CEDED5',
-      input: '#CEDED5',
-      ring: '#17544D',
-      accent: '#2D6F63',
-      accentForeground: '#FFFFFF',
-    },
-  },
-  sage: {
-    name: 'sage',
-    label: 'Sage Green',
-    colors: {
-      brand: '#344E41',
-      brandForeground: '#FFFFFF',
-      background: '#DAD7CD',
-      foreground: '#212020',
-      muted: '#A3B18A',
-      mutedForeground: '#6B7280',
-      card: '#FFFFFF',
-      cardForeground: '#212020',
-      border: '#A3B18A',
-      input: '#A3B18A',
-      ring: '#344E41',
-      accent: '#3A5A40',
-      accentForeground: '#FFFFFF',
-    },
-  },
-  'sage-wedding': {
-    name: 'sage-wedding',
-    label: 'Sage Wedding',
-    colors: {
-      brand: '#406B5B',
-      brandForeground: '#FFFFFF',
-      background: '#E4D5C3',
-      foreground: '#212020',
-      muted: '#B89D83',
-      mutedForeground: '#6B7280',
-      card: '#FFFFFF',
-      cardForeground: '#212020',
-      border: '#B89D83',
-      input: '#B89D83',
-      ring: '#406B5B',
-      accent: '#91AE9E',
-      accentForeground: '#FFFFFF',
-    },
-  },
-  'sage-blue': {
-    name: 'sage-blue',
-    label: 'Sage & Blue',
-    colors: {
-      brand: '#2F3456',
-      brandForeground: '#FFFFFF',
-      background: '#E9E4DC',
-      foreground: '#212020',
-      muted: '#BAC6B8',
-      mutedForeground: '#6B7280',
-      card: '#FFFFFF',
-      cardForeground: '#212020',
-      border: '#BAC6B8',
-      input: '#BAC6B8',
-      ring: '#2F3456',
-      accent: '#8BA794',
-      accentForeground: '#FFFFFF',
+      background: '#F4EFE7',
+      foreground: '#4D515A',
+      shellBackground: '#252429',
+      muted: '#ECE9E4',
+      mutedForeground: '#70757F',
+      card: '#FCFAF6',
+      cardForeground: '#252429',
+      sectionLabel: '#8C816D',
+      sectionTitle: '#252429',
+      cardHover: '#38353D',
+      cardHoverForeground: '#FFFFFF',
+      heroButton: '#CBB189',
+      heroButtonForeground: '#252429',
+      cardButton: '#252429',
+      cardButtonForeground: '#FFFFFF',
+      border: '#D8D3CC',
+      input: '#D8D3CC',
+      ring: '#252429',
+      secondary: '#6B7280',
+      secondaryForeground: '#FFFFFF',
+      accent: '#CBB189',
+      accentForeground: '#252429',
     },
   },
 }

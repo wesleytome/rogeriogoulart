@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom'
 import { Facebook, Instagram, Linkedin } from 'lucide-react'
 import { Separator } from '@/components/ui/separator'
-import { Table, TableBody, TableCell, TableRow } from '@/components/ui/table'
 import { businessInfo } from '@/data/businessInfo'
 import { services } from '@/data/services'
 
@@ -18,7 +17,7 @@ export function Footer() {
               </div>
               <div className="flex flex-col">
                 <span className="text-lg font-body font-semibold text-brand-foreground">
-                  {businessInfo.name}
+                  Clínica Santos & Goulart Odontologia
                 </span>
                 <span className="text-xs opacity-80">
                   Odontologia
@@ -143,22 +142,23 @@ export function Footer() {
           {/* Coluna 4: Horários */}
           <div className="space-y-4">
             <h3 className="text-lg font-body font-semibold text-brand-foreground">Horários</h3>
-            <Table>
-              <TableBody>
-                <TableRow className="border-brand-foreground/20">
-                  <TableCell className="text-sm opacity-90">Segunda - Sexta</TableCell>
-                  <TableCell className="text-sm opacity-90">8:00 - 18:00</TableCell>
-                </TableRow>
-                <TableRow className="border-brand-foreground/20">
-                  <TableCell className="text-sm opacity-90">Sábado</TableCell>
-                  <TableCell className="text-sm opacity-90">9:00 - 13:00</TableCell>
-                </TableRow>
-                <TableRow className="border-brand-foreground/20">
-                  <TableCell className="text-sm opacity-90">Domingo</TableCell>
-                  <TableCell className="text-sm opacity-90">Fechado</TableCell>
-                </TableRow>
-              </TableBody>
-            </Table>
+            <div className="space-y-0">
+              {[
+                ['Seg-Sex', '8:00 - 18:00'],
+                ['Sab', '9:00 - 13:00'],
+                ['Dom', 'Fechado'],
+              ].map(([day, hours], index, items) => (
+                <div
+                  key={day}
+                  className={`grid grid-cols-[minmax(0,1fr)_auto] items-center gap-4 py-2 text-sm opacity-90 ${
+                    index < items.length - 1 ? 'border-b border-brand-foreground/20' : ''
+                  }`}
+                >
+                  <span>{day}</span>
+                  <span className="text-right whitespace-nowrap">{hours}</span>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
 

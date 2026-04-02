@@ -19,30 +19,30 @@
 @theme {
   /* Cores Base em RGB para suporte a alpha */
   /* Valores padrão - serão sobrescritos pelo ThemeContext */
-  --color-brand: #202E4B;
+  --color-brand: #302D46;
   --color-brand-foreground: #FFFFFF;
   
   --color-background: #F5EFEB;
   --color-foreground: #4E535F;
-  --color-shell-background: #202E4B;
+  --color-shell-background: #302D46;
   
   --color-muted: #EFEFEF;
   --color-muted-foreground: #5F788B;
   
   --color-card: #FFFDF8;
-  --color-card-foreground: #1A4262;
-  --color-section-label: #567C8D;
-  --color-section-title: #202E4B;
+  --color-card-foreground: #2B283F;
+  --color-section-label: #D7C2A1;
+  --color-section-title: #2B283F;
   --color-card-hover: #202E4B;
   --color-card-hover-foreground: #FFFFFF;
   --color-hero-button: #D7C2A1;
-  --color-hero-button-foreground: #1A4262;
-  --color-card-button: #202E4B;
+  --color-hero-button-foreground: #2B283F;
+  --color-card-button: #302D46;
   --color-card-button-foreground: #FFFFFF;
   
   --color-border: #D7DDE1;
   --color-input: #D7DDE1;
-  --color-ring: #1A4262;
+  --color-ring: #2B283F;
   
   /* Cores de Estado */
   --color-success: #16A34A;
@@ -57,7 +57,7 @@
   --color-secondary: #567C8D;
   --color-secondary-foreground: #FFFFFF;
   --color-accent: #D7C2A1;
-  --color-accent-foreground: #1A4262;
+  --color-accent-foreground: #2B283F;
 
   /* Superficies de seção para alternância visual */
   --color-section-soft: #EFEFEF;
@@ -168,7 +168,8 @@
   }
 
   .section-heading-divider {
-    @apply w-16 h-0.5 mb-4 bg-brand;
+    @apply w-16 h-0.5 mb-4;
+    background-color: var(--color-section-label);
   }
   
   .section-header {
@@ -188,7 +189,8 @@
   }
   
   .section-divider {
-    @apply w-16 h-1 mb-4 bg-brand;
+    @apply w-16 h-1 mb-4;
+    background-color: var(--color-section-label);
   }
   
   .section-description {
@@ -613,6 +615,31 @@
     object-position: right bottom;
   }
 
+  .doctor-image-01 {
+    right: -8%;
+    top: 22px;
+    height: 60vh;
+    max-height: 64vh;
+    max-width: 78%;
+    -o-object-position: right bottom;
+    object-position: right bottom;
+  }
+
+  @media (max-width: 769px) {
+    .doctor-image-01 {
+      right: 0;
+      top: 0;
+      bottom: auto;
+      height: 80vh;
+      max-height: 58vh;
+      width: auto;
+      max-width: 80%;
+      padding-right: 0;
+      -o-object-position: right bottom;
+      object-position: right bottom;
+    }
+  }
+
   @media (min-width: 768px) {
     .doctor-image {
       max-width: 50%;
@@ -627,6 +654,21 @@
     }
   }
 
+  @media (min-width: 769px) and (max-width: 1023px) {
+    .doctor-image-01 {
+      right: 0;
+      top: 0;
+      bottom: auto;
+      height: 80vh;
+      max-height: 58vh;
+      width: auto;
+      max-width: 80%;
+      padding-right: 0;
+      -o-object-position: right bottom;
+      object-position: right bottom;
+    }
+  }
+
   @media (min-width: 1024px) {
     .doctor-image {
       /* Desktop: imagem cobre do Hero até a base do Transform */
@@ -637,6 +679,16 @@
       max-width: 700px;
       padding-right: 40px;
       object-position: right bottom;
+    }
+
+    .doctor-image-01 {
+      top: 24px;
+      bottom: 0;
+      height: auto;
+      max-height: calc(100% - 12px);
+      max-width: 640px;
+      right: -24px;
+      padding-right: 0;
     }
 
     .doctor-image-02 {
@@ -654,6 +706,15 @@
     .doctor-image {
       max-width: 740px;
       padding-right: 60px;
+    }
+
+    .doctor-image-01 {
+      top: 12px;
+      bottom: 0;
+      max-height: calc(100% - 0px);
+      max-width: 720px;
+      right: -36px;
+      padding-right: 0;
     }
 
     .doctor-image-02 {
@@ -674,6 +735,11 @@
       max-width: 800px;
     }
 
+    .doctor-image-01 {
+      right: calc((100vw - 1600px) / 2 - 36px);
+      max-width: 760px;
+    }
+
     .doctor-image-02 {
       right: calc((100vw - 1600px) / 2 - 108px);
       max-width: 917px;
@@ -684,6 +750,11 @@
     .doctor-image {
       right: calc((100vw - 1600px) / 2);
       max-width: 850px;
+    }
+
+    .doctor-image-01 {
+      right: calc((100vw - 1600px) / 2 - 36px);
+      max-width: 800px;
     }
 
     .doctor-image-02 {
