@@ -2,7 +2,7 @@ import { SEO } from '@/components/SEO'
 import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
 import { GraduationCap, Award, Heart, Target, Clock, Users, CheckCircle2 } from 'lucide-react'
 import { businessInfo } from '@/data/businessInfo'
-import rogerioImage from '@/images/rogerio-goulart.png'
+import rogerioImage from '@/images/dr-rogerio-goulart-interna.png'
 
 export function About() {
   return (
@@ -22,11 +22,13 @@ export function About() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Imagem de fundo */}
         <div className="absolute inset-0">
+          <div className="absolute inset-x-0 bottom-0 top-[10px]">
           <img
             src={rogerioImage}
             alt="Dr. Rogério Goulart - Especialista em Odontologia"
-            className="w-full h-full object-cover"
+            className="w-full h-full object-contain object-right-top"
           />
+          </div>
           {/* Overlay gradiente escuro da esquerda para direita */}
           <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
         </div>

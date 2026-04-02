@@ -1,12 +1,10 @@
 import { createContext, useContext, useState } from 'react'
 import type { ReactNode } from 'react'
-import drRogerio01Image from '@/images/dr-rogerio-goulart-01.png'
 import drRogerioImage from '@/images/dr-rogerio-goulart.png'
 import rogerioImage from '@/images/rogerio-goulart.png'
 import rogerio02Image from '@/images/rogerio-groulart-02.png'
 
 export type ImageName =
-  | 'dr-rogerio-goulart-01'
   | 'dr-rogerio-goulart'
   | 'rogerio-goulart'
   | 'rogerio-groulart-02'
@@ -17,35 +15,29 @@ export interface ImageOption {
   src: string
 }
 
-const DEFAULT_IMAGE_NAME: ImageName = 'dr-rogerio-goulart-01'
+const DEFAULT_IMAGE_NAME: ImageName = 'dr-rogerio-goulart'
 const IMAGE_SELECTION_VERSION_KEY = 'selectedImageVersion'
-const CURRENT_IMAGE_SELECTION_VERSION = '2026-04-dr-rogerio-01-primary'
+const CURRENT_IMAGE_SELECTION_VERSION = '2026-04-dr-rogerio-primary'
 
 const images: Record<ImageName, ImageOption> = {
-  'dr-rogerio-goulart-01': {
-    name: 'dr-rogerio-goulart-01',
-    label: 'Foto 1',
-    src: drRogerio01Image
-  },
   'dr-rogerio-goulart': {
     name: 'dr-rogerio-goulart',
-    label: 'Foto 2',
+    label: 'Foto 1',
     src: drRogerioImage
   },
   'rogerio-goulart': {
     name: 'rogerio-goulart',
-    label: 'Foto 3',
+    label: 'Foto 2',
     src: rogerioImage
   },
   'rogerio-groulart-02': {
     name: 'rogerio-groulart-02',
-    label: 'Foto 4',
+    label: 'Foto 3',
     src: rogerio02Image
   }
 }
 
 const orderedImageNames: ImageName[] = [
-  'dr-rogerio-goulart-01',
   'dr-rogerio-goulart',
   'rogerio-goulart',
   'rogerio-groulart-02'

@@ -6,15 +6,15 @@ export function HeaderSection() {
   const imageClassName =
     currentImage.name === 'rogerio-groulart-02'
       ? 'doctor-image doctor-image-02'
-      : currentImage.name === 'dr-rogerio-goulart-01'
-        ? 'doctor-image doctor-image-01'
+      : currentImage.name === 'dr-rogerio-goulart'
+        ? 'doctor-image doctor-image-interna'
         : 'doctor-image'
 
   return (
     <section className="relative w-full overflow-hidden">
       {/* Container com duas "linhas" */}
       <div className="flex flex-col">
-        
+
         {/* Linha de cima - Header (fundo verde) */}
         <div className="hero-section relative flex items-center bg-brand min-h-[58vh]">
           <div className="w-full relative z-10 pt-4">
