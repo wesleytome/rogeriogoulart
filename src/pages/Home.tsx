@@ -22,7 +22,7 @@ export function Home() {
         title={`Início | ${businessInfo.name} - Odontologia`}
         description={socialDescription}
         canonical="/"
-        keywords={`${businessInfo.specialties.join(', ')}, odontologia, dentista rio de janeiro, implantes dentários, clareamento dental, lentes de contato dental, prótese dentária, endodontia`}
+        keywords={`${businessInfo.specialties.join(', ')}, odontologia, dentista no Rio de Janeiro, implantes dentários, clareamento dental, lentes de contato dental, prótese dentária, dentística restauradora`}
         ogTitle={socialTitle}
         ogDescription={socialDescription}
         ogImage="/images/og-image-rogerio-goulart.png"

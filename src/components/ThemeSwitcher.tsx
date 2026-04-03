@@ -12,12 +12,12 @@ const paletteSections: Array<{
   {
     title: 'Identidade',
     fields: [
-      { key: 'brand', label: 'Brand' },
-      { key: 'brandForeground', label: 'Texto Brand' },
-      { key: 'secondary', label: 'Secundaria' },
-      { key: 'secondaryForeground', label: 'Texto Secundaria' },
-      { key: 'accent', label: 'Botao / Accent' },
-      { key: 'accentForeground', label: 'Texto Botao' },
+      { key: 'brand', label: 'Marca' },
+      { key: 'brandForeground', label: 'Texto da marca' },
+      { key: 'secondary', label: 'Secundária' },
+      { key: 'secondaryForeground', label: 'Texto da secundária' },
+      { key: 'accent', label: 'Botão / destaque' },
+      { key: 'accentForeground', label: 'Texto do botão' },
     ],
   },
   {
@@ -27,30 +27,30 @@ const paletteSections: Array<{
       { key: 'background', label: 'Fundo Interno' },
       { key: 'muted', label: 'Fundo Alternado' },
       { key: 'card', label: 'Card' },
-      { key: 'border', label: 'Border' },
-      { key: 'input', label: 'Input' },
-      { key: 'ring', label: 'Ring' },
+      { key: 'border', label: 'Borda' },
+      { key: 'input', label: 'Campo' },
+      { key: 'ring', label: 'Foco' },
     ],
   },
   {
     title: 'Textos',
     fields: [
       { key: 'foreground', label: 'Texto Principal' },
-      { key: 'sectionLabel', label: 'Texto Acima do Titulo' },
-      { key: 'sectionTitle', label: 'Titulo de Secao' },
-      { key: 'cardForeground', label: 'Texto Card' },
-      { key: 'mutedForeground', label: 'Texto Muted' },
+      { key: 'sectionLabel', label: 'Texto acima do título' },
+      { key: 'sectionTitle', label: 'Título de seção' },
+      { key: 'cardForeground', label: 'Texto do card' },
+      { key: 'mutedForeground', label: 'Texto secundário' },
     ],
   },
   {
-    title: 'Cards e Botoes',
+    title: 'Cards e botões',
     fields: [
-      { key: 'cardHover', label: 'Hover do Card' },
-      { key: 'cardHoverForeground', label: 'Texto no Hover' },
-      { key: 'heroButton', label: 'Botao Hero' },
-      { key: 'heroButtonForeground', label: 'Texto Botao Hero' },
-      { key: 'cardButton', label: 'Botao Card / Mapa' },
-      { key: 'cardButtonForeground', label: 'Texto Botao Card' },
+      { key: 'cardHover', label: 'Hover do card' },
+      { key: 'cardHoverForeground', label: 'Texto no hover' },
+      { key: 'heroButton', label: 'Botão do hero' },
+      { key: 'heroButtonForeground', label: 'Texto do botão do hero' },
+      { key: 'cardButton', label: 'Botão do card / mapa' },
+      { key: 'cardButtonForeground', label: 'Texto do botão do card' },
     ],
   },
 ]
@@ -152,7 +152,7 @@ export function ThemeSwitcher() {
                 </div>
                 <h3 className="text-base font-semibold text-foreground">Editor de paleta</h3>
                 <p className="text-xs text-muted-foreground">
-                  Um único painel lateral para ajustar shell, titulos, cards e botoes com preview ao vivo.
+                  Um painel lateral único para ajustar fundo externo, títulos, cards e botões com prévia ao vivo.
                 </p>
               </div>
               <Button
@@ -303,7 +303,7 @@ export function ThemeSwitcher() {
                       setTheme('default')
                       setShowPaletteEditor(false)
                     }}>
-                      Voltar ao padrao
+                      Voltar ao padrão
                     </Button>
                     <Button type="button" size="sm" onClick={handleCopyPalette}>
                       {copied ? 'Copiado' : 'Copiar bloco'}

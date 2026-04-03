@@ -17,8 +17,8 @@ export function CategoryHero({ title, subtitle, description, image }: CategoryHe
           alt={title}
           className="w-full h-full object-cover"
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
+        {/* Overlay do hero: sólido no mobile, gradiente lateral no desktop */}
+        <div className="hero-image-overlay absolute inset-0" />
       </div>
 
       {/* Conteúdo */}

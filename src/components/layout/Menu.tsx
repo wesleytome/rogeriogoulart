@@ -3,6 +3,7 @@ import { Menu as MenuIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import {
   Sheet,
+  SheetClose,
   SheetContent,
   SheetHeader,
   SheetTitle,
@@ -15,6 +16,16 @@ import { cn } from '@/lib/utils'
 interface MenuProps {
   transparent?: boolean
 }
+
+const navigationItems = [
+  { to: '/', label: 'Início' },
+  { to: '/sobre', label: 'Sobre o Dr.' },
+  { to: '/odontologia', label: 'Odontologia' },
+  { to: '/depoimentos', label: 'Depoimentos' },
+  { to: '/contato', label: 'Contato' },
+]
+
+const mobileMenuOpacities = [1, 0.82, 0.64, 0.46, 0.28]
 
 export function Menu({ transparent = false }: MenuProps) {
   const location = useLocation()
@@ -39,61 +50,20 @@ export function Menu({ transparent = false }: MenuProps) {
           <div className="flex justify-between items-center">
             {/* Left Navigation Links */}
             <nav className="hidden lg:flex items-center gap-6">
-              <Link
-                to="/"
-                className={cn(
-                  "font-medium transition-colors",
-                  isActive('/')
-                    ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
-                    : "text-foreground hover:text-brand"
-                )}
-              >
-                Início
-              </Link>
-              <Link
-                to="/sobre"
-                className={cn(
-                  "font-medium transition-colors",
-                  isActive('/sobre')
-                    ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
-                    : "text-foreground hover:text-brand"
-                )}
-              >
-                Sobre o Dr.
-              </Link>
-              <Link
-                to="/odontologia"
-                className={cn(
-                  "font-medium transition-colors",
-                  isActive('/odontologia')
-                    ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
-                    : "text-foreground hover:text-brand"
-                )}
-              >
-                Odontologia
-              </Link>
-              <Link
-                to="/depoimentos"
-                className={cn(
-                  "font-medium transition-colors",
-                  isActive('/depoimentos')
-                    ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
-                    : "text-foreground hover:text-brand"
-                )}
-              >
-                Depoimentos
-              </Link>
-              <Link
-                to="/contato"
-                className={cn(
-                  "font-medium transition-colors",
-                  isActive('/contato')
-                    ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
-                    : "text-foreground hover:text-brand"
-                )}
-              >
-                Contato
-              </Link>
+              {navigationItems.map((item) => (
+                <Link
+                  key={item.to}
+                  to={item.to}
+                  className={cn(
+                    "font-medium transition-colors",
+                    isActive(item.to)
+                      ? "px-4 py-2 rounded-md bg-brand text-brand-foreground hover:opacity-90"
+                      : "text-foreground hover:text-brand"
+                  )}
+                >
+                  {item.label}
+                </Link>
+              ))}
             </nav>
 
             {/* Right: Theme Switcher + Phone */}
@@ -119,80 +89,63 @@ export function Menu({ transparent = false }: MenuProps) {
                   <span className="sr-only">Abrir menu</span>
                 </Button>
               </SheetTrigger>
-              <SheetContent side="right">
-                <SheetHeader>
-                  <SheetTitle>Menu</SheetTitle>
+              <SheetContent
+                side="right"
+                className="w-[84vw] max-w-[320px] border-l border-border/60 bg-card/98 p-0 shadow-[0_24px_80px_rgba(25,23,39,0.22)] backdrop-blur-md [&_[data-slot=sheet-close]]:right-5 [&_[data-slot=sheet-close]]:top-5 [&_[data-slot=sheet-close]]:rounded-full [&_[data-slot=sheet-close]]:border [&_[data-slot=sheet-close]]:border-border/70 [&_[data-slot=sheet-close]]:bg-background/95 [&_[data-slot=sheet-close]]:p-2 [&_[data-slot=sheet-close]]:text-muted-foreground [&_[data-slot=sheet-close]]:opacity-100"
+              >
+                <SheetHeader className="px-6 pb-0 pt-6">
+                  <SheetTitle className="text-xl font-semibold tracking-[-0.02em] text-foreground">
+                    Menu
+                  </SheetTitle>
                 </SheetHeader>
-                <nav className="flex flex-col gap-4 mt-8">
-                  <Link
-                    to="/"
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive('/')
-                        ? "text-brand font-semibold"
-                        : "hover:text-brand"
-                    )}
-                  >
-                    Início
-                  </Link>
-                  <Link
-                    to="/sobre"
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive('/sobre')
-                        ? "text-brand font-semibold"
-                        : "hover:text-brand"
-                    )}
-                  >
-                    Sobre o Dr.
-                  </Link>
-                  <Link
-                    to="/odontologia"
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive('/odontologia')
-                        ? "text-brand font-semibold"
-                        : "hover:text-brand"
-                    )}
-                  >
-                    Odontologia
-                  </Link>
-                  <Link
-                    to="/depoimentos"
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive('/depoimentos')
-                        ? "text-brand font-semibold"
-                        : "hover:text-brand"
-                    )}
-                  >
-                    Depoimentos
-                  </Link>
-                  <Link
-                    to="/contato"
-                    className={cn(
-                      "text-lg font-medium transition-colors",
-                      isActive('/contato')
-                        ? "text-brand font-semibold"
-                        : "hover:text-brand"
-                    )}
-                  >
-                    Contato
-                  </Link>
-                  <div className="pt-2 border-t border-border">
-                    <ThemeSwitcher />
+                <div className="flex flex-1 flex-col overflow-y-auto">
+                  <nav className="flex flex-1 flex-col justify-center gap-3 px-6 py-8">
+                    {navigationItems.map((item, index) => (
+                      <SheetClose asChild key={item.to}>
+                        <Link
+                          to={item.to}
+                          className={cn(
+                            "block w-full rounded-md text-left text-lg font-medium leading-none tracking-[-0.02em] transition-all",
+                            isActive(item.to)
+                              ? "text-brand shadow-sm"
+                              : "text-foreground/90 hover:text-brand"
+                          )}
+                          style={{
+                            backgroundColor: `rgb(215 194 161 / ${mobileMenuOpacities[index] ?? 0.22})`,
+                            padding: '20px',
+                            paddingLeft: '30px',
+                          }}
+                        >
+                          {item.label}
+                        </Link>
+                      </SheetClose>
+                    ))}
+                  </nav>
+                </div>
+
+                <div className="border-t border-border/60 bg-background/80 px-4 py-4">
+                  <div className="rounded-2xl border border-accent/40 bg-accent/25 p-4">
+                    <p className="text-[11px] font-semibold uppercase tracking-[0.14em] text-accent-foreground/70">
+                      Agendamento rápido
+                    </p>
+                    <p className="mt-1 text-sm leading-relaxed text-accent-foreground">
+                      Fale com a clínica pelo WhatsApp para consultar horários disponíveis.
+                    </p>
+                    <a 
+                      href={whatsappUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="mt-4 flex w-full items-center justify-center gap-2 rounded-xl bg-card-button px-4 py-3 text-sm font-semibold text-card-button-foreground transition-[filter] hover:brightness-105"
+                      aria-label="Abrir WhatsApp para agendar consulta"
+                    >
+                      <WhatsAppIcon className="h-5 w-5" />
+                      Agendar pelo WhatsApp
+                    </a>
+                    <p className="mt-3 text-center text-sm text-muted-foreground">
+                      {businessInfo.phones.main}
+                    </p>
                   </div>
-                  <a 
-                    href={whatsappUrl}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-4 py-2 rounded-md bg-accent hover:brightness-105 text-accent-foreground font-medium transition-[filter]"
-                    aria-label="Abrir WhatsApp para agendar consulta"
-                  >
-                    <WhatsAppIcon className="h-5 w-5" />
-                    {businessInfo.phones.main}
-                  </a>
-                </nav>
+                </div>
               </SheetContent>
             </Sheet>
           </div>

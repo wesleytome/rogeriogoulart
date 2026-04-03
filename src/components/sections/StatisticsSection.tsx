@@ -2,7 +2,7 @@ export function StatisticsSection() {
   const statistics = [
     {
       title: 'Exclusivo',
-      text: 'Atendimento exclusivamente odontologico'
+      text: 'Atendimento exclusivamente odontológico'
     },
     {
       title: 'Individual',
@@ -10,7 +10,7 @@ export function StatisticsSection() {
     },
     {
       title: 'Preciso',
-      text: 'Foco em saude, funcao e estetica do sorriso'
+      text: 'Foco em saúde, função e estética do sorriso'
     }
   ]
 

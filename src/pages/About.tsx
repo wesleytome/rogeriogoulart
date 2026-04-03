@@ -2,14 +2,14 @@ import { SEO } from '@/components/SEO'
 import { CTAButton, CTAButtonLine } from '@/components/ui/cta-button'
 import { GraduationCap, Award, Heart, Target, Clock, Users, CheckCircle2 } from 'lucide-react'
 import { businessInfo } from '@/data/businessInfo'
-import rogerioImage from '@/images/dr-rogerio-goulart-interna.png'
+import rogerioImage from '@/images/dr-rogerio-goulart-sobre-o-dr.jpg'
 
 export function About() {
   return (
     <>
       <SEO
         title={`Sobre | ${businessInfo.name} - Odontologia`}
-        description="Conheca a trajetoria do Dr. Rogerio Goulart na odontologia, com foco em saude bucal, funcao e estetica do sorriso."
+        description="Conheça a trajetória do Dr. Rogério Goulart na odontologia, com foco em saúde bucal, função e estética do sorriso."
         canonical="/sobre"
         ogImage="/images/og-image-rogerio-goulart.png"
         ogImageWidth={1200}
@@ -26,11 +26,11 @@ export function About() {
           <img
             src={rogerioImage}
             alt="Dr. Rogério Goulart - Especialista em Odontologia"
-            className="w-full h-full object-contain object-right-top"
+            className="w-full h-full object-cover object-[68%_center] md:object-contain md:object-right-top"
           />
           </div>
-          {/* Overlay gradiente escuro da esquerda para direita */}
-          <div className="absolute inset-0 bg-gradient-to-r from-foreground/90 via-foreground/70 to-transparent" />
+          {/* Overlay do hero: sólido no mobile, gradiente lateral no desktop */}
+          <div className="hero-image-overlay absolute inset-0" />
         </div>
 
         {/* Conteúdo */}
@@ -50,12 +50,12 @@ export function About() {
 
               {/* Subtítulo */}
               <p className="text-xl md:text-2xl text-brand mb-6">
-                Atencao dedicada a cada sorriso
+                Atenção dedicada a cada sorriso
               </p>
 
               {/* Descrição */}
               <p className="text-lg text-background/90 leading-relaxed max-w-xl">
-                Atuacao dedicada a odontologia, com o compromisso de oferecer tratamentos
+                Atuação dedicada à odontologia, com o compromisso de oferecer tratamentos
                 seguros, personalizados e centrados no bem-estar de cada paciente.
               </p>
             </div>
@@ -111,38 +111,38 @@ export function About() {
                 <Users className="w-8 h-8 text-brand" />
               </div>
               <p className="text-2xl md:text-3xl font-bold text-foreground">Proximidade</p>
-              <p className="text-muted-foreground mt-1">Relacao baseada em confianca e clareza</p>
+              <p className="text-muted-foreground mt-1">Relação baseada em confiança e clareza</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <Heart className="w-8 h-8 text-brand" />
               </div>
               <p className="text-2xl md:text-3xl font-bold text-foreground">Cuidado</p>
-              <p className="text-muted-foreground mt-1">Conforto e atencao ao longo do tratamento</p>
+              <p className="text-muted-foreground mt-1">Conforto e atenção ao longo do tratamento</p>
             </div>
             <div className="text-center">
               <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                 <GraduationCap className="w-8 h-8 text-brand" />
               </div>
-              <p className="text-2xl md:text-3xl font-bold text-foreground">Atualizacao</p>
-              <p className="text-muted-foreground mt-1">Aperfeicoamento tecnico continuo</p>
+              <p className="text-2xl md:text-3xl font-bold text-foreground">Atualização</p>
+              <p className="text-muted-foreground mt-1">Aperfeiçoamento técnico contínuo</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Formacao e areas de atuacao */}
+      {/* Formação e áreas de atuação */}
       <section className="py-16 md:py-24 bg-card">
         <div className="container-section">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-            {/* Formacao */}
+            {/* Formação */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center">
                   <GraduationCap className="w-6 h-6 text-brand" />
                 </div>
                 <h2 className="text-2xl md:text-3xl font-bold text-foreground">
-                  Formacao e aperfeicoamento
+                  Formação e aperfeiçoamento
                 </h2>
               </div>
               
@@ -150,30 +150,30 @@ export function About() {
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
                   <h3 className="font-semibold text-foreground">Graduação em Odontologia</h3>
-                  <p className="text-muted-foreground">Base tecnica para uma atuacao clinica cuidadosa e individualizada.</p>
+                  <p className="text-muted-foreground">Base técnica para uma atuação clínica cuidadosa e individualizada.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Aperfeicoamento em reabilitacao oral</h3>
-                  <p className="text-muted-foreground">Foco em planejamento funcional, mastigacao e recuperacao do sorriso.</p>
+                  <h3 className="font-semibold text-foreground">Aperfeiçoamento em reabilitação oral</h3>
+                  <p className="text-muted-foreground">Foco em planejamento funcional, mastigação e recuperação do sorriso.</p>
                 </div>
                 
                 <div className="relative pl-8 border-l-2 border-brand/20">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Atualizacao em implantodontia e protese</h3>
-                  <p className="text-muted-foreground">Condutas pensadas para devolver seguranca, funcao e estabilidade.</p>
+                  <h3 className="font-semibold text-foreground">Atualização em implantodontia e prótese</h3>
+                  <p className="text-muted-foreground">Condutas pensadas para devolver segurança, função e estabilidade.</p>
                 </div>
                 
                 <div className="relative pl-8">
                   <div className="absolute -left-2 top-0 w-4 h-4 rounded-full bg-brand" />
-                  <h3 className="font-semibold text-foreground">Educacao continuada</h3>
-                  <p className="text-muted-foreground">Atualizacao permanente em tecnicas, materiais e planejamento odontologico.</p>
+                  <h3 className="font-semibold text-foreground">Educação continuada</h3>
+                  <p className="text-muted-foreground">Atualização permanente em técnicas, materiais e planejamento odontológico.</p>
                 </div>
               </div>
             </div>
 
-            {/* Areas de atuacao */}
+            {/* Áreas de atuação */}
             <div>
               <div className="flex items-center gap-3 mb-6">
                 <div className="w-12 h-12 rounded-full bg-brand/10 flex items-center justify-center">

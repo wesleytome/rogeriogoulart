@@ -10,32 +10,32 @@ interface Differential {
 const differentials: Differential[] = [
   {
     id: '1',
-    title: 'Avaliacao individual',
-    description: 'Cada caso comeca com escuta, exame e criterio clinico',
+    title: 'Avaliação individual',
+    description: 'Cada caso começa com escuta, exame e critério clínico',
     icon: <Stethoscope className="h-8 w-8" />
   },
   {
     id: '2',
     title: 'Planejamento cuidadoso',
-    description: 'As etapas do tratamento sao definidas conforme a necessidade do paciente',
+    description: 'As etapas do tratamento são definidas conforme a necessidade do paciente',
     icon: <ClipboardList className="h-8 w-8" />
   },
   {
     id: '3',
-    title: 'Seguranca e biosseguranca',
+    title: 'Segurança e biossegurança',
     description: 'Protocolos e cuidados adotados em todas as etapas do atendimento',
     icon: <Shield className="h-8 w-8" />
   },
   {
     id: '4',
     title: 'Atendimento humanizado',
-    description: 'Escuta, acolhimento e comunicacao clara do inicio ao fim',
+    description: 'Escuta, acolhimento e comunicação clara do início ao fim',
     icon: <Heart className="h-8 w-8" />
   },
   {
     id: '5',
-    title: 'Acompanhamento responsavel',
-    description: 'Orientacoes e suporte apos cada procedimento',
+    title: 'Acompanhamento responsável',
+    description: 'Orientações e suporte após cada procedimento',
     icon: <CheckCircle2 className="h-8 w-8" />
   }
 ]
@@ -54,7 +54,7 @@ export function ClinicDifferentials() {
           </h2>
           <div className="section-divider"></div>
           <p className="section-description">
-            Criterio clinico, clareza e cuidado em cada etapa do atendimento
+            Critério clínico, clareza e cuidado em cada etapa do atendimento
           </p>
         </div>
 
@@ -65,7 +65,7 @@ export function ClinicDifferentials() {
             <div className="absolute inset-0 rounded-lg overflow-hidden">
               <img
                 src="https://amaisd.com.br/wp-content/uploads/2023/04/2_4.png"
-                alt="Consultorio odontologico"
+                alt="Consultório odontológico"
                 className="w-full h-full object-cover object-[60%_center]"
               />
             </div>

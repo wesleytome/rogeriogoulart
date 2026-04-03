@@ -63,13 +63,13 @@ export function HeaderSection() {
               {/* Área de conteúdo - full width abaixo de 1024px, metade acima */}
               <div className="w-full lg:w-2/5 xl:w-1/2 lg:pr-6 xl:pr-8">
                 <h2 className="mb-6 leading-tight text-foreground font-normal" style={{ lineHeight: '1.1' }}>
-                  <span className="text-2xl sm:text-3xl xl:text-4xl">Odontologia para recuperar <br /> saude, funcao e confianca</span>
+                  <span className="text-2xl sm:text-3xl xl:text-4xl">Odontologia para recuperar <br /> saúde, função e confiança</span>
                 </h2>
                 <p className="leading-relaxed text-foreground w-full lg:max-w-md" style={{ lineHeight: '1.4' }}>
                   <span className="text-base sm:text-lg font-light xl:text-xl">
                     Tratamentos planejados de forma individual
                     <br className="hidden max-[769px]:block" />
-                    para cuidar do seu sorriso com seguranca,
+                    para cuidar do seu sorriso com segurança,
                     <br className="hidden max-[769px]:block" />
                     clareza e naturalidade.
                   </span>

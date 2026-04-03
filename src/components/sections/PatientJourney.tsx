@@ -10,26 +10,26 @@ interface JourneyStep {
 const journeySteps: JourneyStep[] = [
   {
     number: 1,
-    title: 'Avaliacao clinica',
+    title: 'Avaliação clínica',
     description: 'Escuta, exame e entendimento da sua queixa principal',
     icon: <Stethoscope className="h-6 w-6" />
   },
   {
     number: 2,
-    title: 'Diagnostico e planejamento',
-    description: 'Definicao do tratamento indicado para o seu caso',
+    title: 'Diagnóstico e planejamento',
+    description: 'Definição do tratamento indicado para o seu caso',
     icon: <ClipboardList className="h-6 w-6" />
   },
   {
     number: 3,
-    title: 'Execucao do tratamento',
-    description: 'Procedimentos realizados com tecnica e previsibilidade',
+    title: 'Execução do tratamento',
+    description: 'Procedimentos realizados com técnica e previsibilidade',
     icon: <Calendar className="h-6 w-6" />
   },
   {
     number: 4,
     title: 'Acompanhamento',
-    description: 'Orientacoes e acompanhamento apos cada etapa',
+    description: 'Orientações e acompanhamento após cada etapa',
     icon: <Heart className="h-6 w-6" />
   }
 ]
@@ -48,7 +48,7 @@ export function PatientJourney() {
           </h2>
           <div className="section-divider"></div>
           <p className="section-description">
-            Cada etapa e explicada com clareza para que voce saiba o que esperar do diagnostico ao pos-tratamento
+            Cada etapa é explicada com clareza para que você saiba o que esperar do diagnóstico ao pós-tratamento.
           </p>
         </div>
 
@@ -61,10 +61,10 @@ export function PatientJourney() {
                 Seu atendimento, passo a passo
               </h3>
               <p className="leading-relaxed text-foreground text-base md:text-lg">
-                Cada caso exige avaliacao cuidadosa. Por isso, o atendimento e conduzido de forma organizada, com explicacao clara das possibilidades, etapas e cuidados.
+                Cada caso exige avaliação cuidadosa. Por isso, o atendimento é conduzido de forma organizada, com explicação clara das possibilidades, etapas e cuidados.
               </p>
               <p className="leading-relaxed text-foreground text-base md:text-lg">
-                Da primeira consulta ao acompanhamento final, o objetivo e que voce tenha seguranca para entender o tratamento e tranquilidade para seguir cada fase.
+                Da primeira consulta ao acompanhamento final, o objetivo é que você tenha segurança para entender o tratamento e tranquilidade para seguir cada fase.
               </p>
               <div className="pt-4">
                 <div className="flex items-center gap-3">

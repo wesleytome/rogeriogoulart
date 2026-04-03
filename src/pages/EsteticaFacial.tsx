@@ -36,8 +36,8 @@ export function EsteticaFacial() {
               Conheça nossos tratamentos odontológicos
             </h2>
             <p className="text-lg text-foreground/80 leading-relaxed mb-8">
-              Implantes dentários, clareamento dental, lentes de contato dental, ortodontia,
-              prótese dentária e endodontia com planejamento personalizado.
+              Implantes dentários, clareamento dental, lentes de contato dental,
+              prótese dentária e dentística restauradora com planejamento personalizado.
             </p>
             <CTAButton to="/odontologia" size="default">
               <CTAButtonLine>Ver tratamentos</CTAButtonLine>

@@ -6,7 +6,7 @@ export function Services() {
     <>
       <SEO
         title={`Serviços | ${businessInfo.name} - Odontologia`}
-        description="Conheça nossos tratamentos odontológicos: implantes, clareamento, lentes de contato dental, ortodontia, próteses e endodontia."
+        description="Conheça nossos tratamentos odontológicos: implantes, clareamento, lentes de contato dental, próteses e dentística restauradora."
         canonical="/servicos"
         ogImage="/images/og-image-rogerio-goulart.png"
         ogImageWidth={1200}
