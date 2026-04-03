@@ -11,9 +11,10 @@ import { Menu } from '@/components/layout/Menu'
 import { businessInfo } from '@/data/businessInfo'
 
 export function Home() {
-  const socialTitle = 'Dr. Rogério Goulart | Santos & Goulart Odontologia'
+  const socialTitle = 'Dr. Rogério Goulart | Odontologia reabilitadora e estética'
+  const socialSubtitle = 'Clínica Santos & Goulart Odontologia • Praça Seca, Rio de Janeiro'
   const socialDescription =
-    'Odontologia reabilitadora e estética na Praça Seca, com atendimento individualizado para recuperar saúde, função e confiança.'
+    'Atendimento odontológico individualizado para recuperar saúde bucal, função mastigatória e confiança ao sorrir, com foco em reabilitação oral e estética.'
 
   return (
     <>
@@ -35,7 +36,7 @@ export function Home() {
         twitterCard="summary_large_image"
         twitterTitle={socialTitle}
         twitterDescription={socialDescription}
-        ogSiteName="Clínica Santos & Goulart Odontologia"
+        ogSiteName={socialSubtitle}
       />
       <TopSection>
         <Menu transparent />

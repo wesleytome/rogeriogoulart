@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "typecheck": "tsc -b --pretty false",
-    "build": "tsc -b && vite build",
+    "build": "tsc -b && VITE_SITE_URL=${VITE_SITE_URL:-https://${VERCEL_PROJECT_PRODUCTION_URL:-rogeriogoulart.vercel.app}} vite build",
     "lint": "eslint .",
     "check": "pnpm run lint && pnpm run build",
     "preview": "vite preview"

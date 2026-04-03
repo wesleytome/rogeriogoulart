@@ -1,7 +1,9 @@
 import { useEffect } from 'react'
 import { businessInfo } from '@/data/businessInfo'
 
-const SOCIAL_IMAGE_VERSION = '20260402-2'
+const DEFAULT_SITE_URL = 'https://rogeriogoulart.vercel.app'
+const SOCIAL_IMAGE_VERSION = '20260402-3'
+const LOCAL_HOSTS = new Set(['localhost', '127.0.0.1', '0.0.0.0'])
 
 interface SEOProps {
   title?: string
@@ -36,10 +38,31 @@ interface SEOProps {
 /**
  * Função auxiliar para construir URL completa
  */
+const normalizeOrigin = (url: string): string => url.replace(/\/+$/, '')
+
+const getSiteOrigin = (): string => {
+  const configuredSiteUrl = normalizeOrigin(import.meta.env.VITE_SITE_URL || DEFAULT_SITE_URL)
+
+  if (typeof window === 'undefined') {
+    return configuredSiteUrl
+  }
+
+  if (LOCAL_HOSTS.has(window.location.hostname)) {
+    return configuredSiteUrl
+  }
+
+  return normalizeOrigin(window.location.origin)
+}
+
 const getFullUrl = (url?: string): string => {
-  if (!url) return window.location.href
+  if (!url) {
+    if (typeof window !== 'undefined' && !LOCAL_HOSTS.has(window.location.hostname)) {
+      return window.location.href
+    }
+    return getSiteOrigin()
+  }
   if (url.startsWith('http')) return url
-  const origin = window.location.origin
+  const origin = getSiteOrigin()
   const path = url.startsWith('/') ? url : `/${url}`
   return `${origin}${path}`
 }
