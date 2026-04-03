@@ -22,11 +22,11 @@ export function About() {
       <section className="relative min-h-[60vh] flex items-center overflow-hidden">
         {/* Imagem de fundo */}
         <div className="absolute inset-0">
-          <div className="absolute inset-x-0 bottom-0 top-[10px]">
+          <div className="absolute inset-x-0 bottom-0 top-[10px] md:top-0">
           <img
             src={rogerioImage}
             alt="Dr. Rogério Goulart - Especialista em Odontologia"
-            className="w-full h-full object-cover object-[68%_center] md:object-contain md:object-right-top"
+            className="w-full h-full object-cover object-[68%_center] md:object-[74%_18%] lg:object-[76%_20%] xl:object-[74%_18%]"
           />
           </div>
           {/* Overlay do hero: sólido no mobile, gradiente lateral no desktop */}
